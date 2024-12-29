@@ -2,14 +2,14 @@
 
 A file system is a method and data structure that an operating system uses to manage files on a storage device. Here’s a breakdown of what file systems do and some common types used in Linux
 
-***What File Systems Do***
+***What File Systems Do -***
 * Data Organization: They organize data into files and directories, making it easier to store, retrieve, and manage.
 * Space Management: They manage disk space, including free and used space, to optimize storage efficiency.
 * File Naming and Metadata: They provide a way to name files and store metadata (such as permissions, timestamps, and ownership).
 * Access Control: They control who can access and modify files through permissions and security settings.
 * File Integrity: Many file systems include features to ensure data integrity, such as journaling and checksums.
 
-***Common File Systems in Linux***
+***Common File Systems in Linux -***
 
 * ext4 (Fourth Extended File System)
   - Description: The default file system for many Linux distributions. It offers good performance, reliability, and large file support.
@@ -41,7 +41,7 @@ A file system is a method and data structure that an operating system uses to ma
   - Features: Snapshots, RAID-Z, data deduplication, self-healing.
   - Use Case: Data centers, servers requiring high data reliability and performance.
  
-*Choose the right file system for different types of directories:*
+***Choose the right file system for different types of directories:***
 * Root Directory (/)
   - Recommended File System: **ext4** | ext4 is stable, reliable, and widely supported. It offers good performance and is suitable for the main system directory that contains essential system files.
 * Home Directory (/home)
