@@ -80,5 +80,6 @@ The Linux Filesystem is organized in a tree-like hierarchy, following the Filesy
 The Linux Filesystem structure begins with the root directory, which is the highest directory in the hierarchy. It contains all other directories and subdirectories on the system.
 
 To get a better picture of this, navigate to the root directory / and run the following command:
-```sh
+```
 tree -D -L 1
+```
