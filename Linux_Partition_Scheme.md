@@ -1,7 +1,7 @@
 ## <span style="font-size: 20px;"><strong><em>Linux Partition Scheme:</em></strong></span>
 A Linux partition scheme is a way of dividing a physical storage device (like a hard drive or SSD) into multiple logical sections called partitions. Each partition can then be formatted with a specific file system and used for different purposes. 
 
-***Types of Partitions -***
+#***Types of Partitions -***
 There are several types of partitions that you can create to organize and manage your data. Here are the main types
   - Primary Partitions: 
     - Description: A primary partition is a type of partition that can host an operating system or other essential files.
@@ -24,19 +24,15 @@ There are several types of partitions that you can create to organize and manage
 
 Summary of Partition Types  
 
-| Header 1    | Header 2    | Header 3    | Header 4    |
+| Partition Type | Description | Limitations | Use Case |
 |-------------|-------------|-------------|-------------|
-| Row 1 Col 1 | Row 1 Col 2 | Row 1 Col 3 | Row 1 Col 4 |
-| Row 2 Col 1 | Row 2 Col 2 | Row 2 Col 3 | Row 2 Col 4 |
-| Row 3 Col 1 | Row 3 Col 2 | Row 3 Col 3 | Row 3 Col 4 |
-| Row 4 Col 1 | Row 4 Col 2 | Row 4 Col 3 | Row 4 Col 4 |
-| Row 5 Col 1 | Row 5 Col 2 | Row 5 Col 3 | Row 5 Col 4 |
-| Row 6 Col 1 | Row 6 Col 2 | Row 6 Col 3 | Row 6 Col 4 |
+| Primary | Hosts OS or essential files | MBR: Up to 4 primary partitions | OS installation, bootable partitions |
+| Extended | Container for logical partitions | Only one per MBR disk | When more than 4 partitions are needed |
+| Logical | Partitions within an extended partition | Only within extended partition on MBR | Additional data storage, multi-boot |
+| Swap | Provides additional virtual memory | None | Virtual memory, system hibernation |
+| EFI System<br>(ESP) | Stores bootloader and related files for UEFI | None | Required for UEFI booting |
 
-
-
-
-***Partition Tables -***
+#***Partition Tables -***
 There are two primary partitioning schemes in use today:
 * MBR (Master Boot Record):
   - Legacy Standard: An older standard that has been around for a long time.
