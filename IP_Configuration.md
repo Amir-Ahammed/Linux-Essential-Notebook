@@ -18,7 +18,7 @@ sudo cp /etc/netplan/50-cloud-init.yaml /etc/netplan/50-cloud-init.yaml.bak
 ***Step 3: Edit the Netplan Configuration File*** - 
 Open the Netplan configuration file by useing a text editor like vim:
 ```
-sudo vim /etc/netplan/01-netcfg.yaml
+sudo vim /etc/netplan/50-cloud-init.yaml
 ```
 
 ***Step 4: Add Your Configuration*** - 
