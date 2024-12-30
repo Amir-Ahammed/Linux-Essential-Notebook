@@ -12,7 +12,7 @@ Look for your network interface (e.g., ens33).
 ***Step 2: Backup Your Configuration File*** - 
 Netplan configuration file located in `` /etc/netplan/``. You might find a file named ``01-netcfg.yaml`` or ``50-cloud-init.yaml``. Before making any changes, it's a good practice to backup the original configuration file. You can do this by running:
 ``` 
-sudo cp /etc/netplan/50-cloud-init.yaml /etc/netplan/50-cloud-init.yaml
+sudo cp /etc/netplan/50-cloud-init.yaml /etc/netplan/50-cloud-init.yaml.bak
 ```
 
 ***Step 3: Edit the Netplan Configuration File*** - 
