@@ -72,4 +72,17 @@ There are two primary partitioning schemes in use today:
   - swap: Used as virtual memory to extend the system's RAM. When physical RAM is full, the system uses swap space on the hard drive.
   - /boot: Contains the boot loader and kernel, which are necessary to start the operating system.
 
+***Example Partition Table Usage***
+* **MBR Example:**
+1. **/dev/sda1**: Primary partition (bootable) (500MB)
+2. **/dev/sda2**: Root Partition (/) (50GB)
+3. **/dev/sda3**: Swap Partition (4GB)
+4. **/dev/sda4**: Extended Partition
+      - **/dev/sda5**: Home Partition (/home) (Remaining space)
+*  **GPT Example:**
+1. **/dev/sda1**: EFI System Partition (500MB)
+2. **/dev/sda2**: Root Partition (/) (50GB)
+3. **/dev/sda3**: Swap Partition (4GB)
+4. **/dev/sda4**: Home Partition (/home) (Remaining space)
+
 
