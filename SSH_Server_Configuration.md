@@ -27,7 +27,7 @@ SSH relies on the public-key cryptography to authenticate the remote system and 
 8. The server decrypts the session key using its private key.
 9. The connection between the client and the server is now secured by encrypting each data using the session key.
 
-## <span style="font-size: 20px;"><strong><em>SSH Server Configuration in Ubuntu</em></strong></span>
+## <span style="font-size: 20px;"><strong><em>SSH Server Configuration</em></strong></span>
 
 ***Step 1: Update Your System -***
 First, make sure your system is up to date
@@ -91,7 +91,18 @@ ssh -p port_number username@server_ip
   sudo apt-get install fail2ban
   ```
 
+***Manage SSH services: ***
+Systemd (used by most modern Linux distributions such as Ubuntu, Debian, Fedora, and CentOS 7+) provides the following fundamental commands for controlling the SSH server.
+  - Start: `sudo systemctl start ssh`
+  - Stop: `sudo systemctl stop ssh`
+  - Restart: `sudo systemctl restart ssh`
+  - Reload: `sudo systemctl reload ssh`
+  - Status: `sudo systemctl status ssh` (This shows whether the service is running, any recent logs, etc.)
+  - Enable on boot: `sudo systemctl enable ssh` (This ensures SSH starts automatically when the system boots)
+  - Disable on boot: `sudo systemctl disable ssh` (This prevents SSH from starting automatically)
 
+
+## <span style="font-size: 20px;"><strong><em>SSH Client Configuration</em></strong></span>
 
 
 
