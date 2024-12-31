@@ -3,8 +3,8 @@
 *   [SSH Overview](#ssh-and-how-ssh-works)
     * [SSH (Secure Shell)](#ssh-secure-shell)
     * [SSH Architecture](#ssh-architecture)
-*   [SSH Server](#ssh-server-configuration)
-*   [SSH Client](#ssh-client-configuration)
+*   [SSH Server Configuration](#ssh-server-configuration)
+*   [SSH Client Configuration](#ssh-client-configuration)
 
 ## SSH Overview <a name="ssh-and-how-ssh-works"></a>
 ***SSH (Secure Shell)*** <a name="ssh-secure-shell"></a> 
@@ -36,7 +36,7 @@
 8. The server decrypts the session key using its private key.
 9. The connection between the client and the server is now secured by encrypting each data using the session key.
 
-## SSH Server <a name="ssh-server-configuration"></a>
+## SSH Server Configuration <a name="ssh-server-configuration"></a>
 ***Step 1: Update Your System -***
 First, make sure your system is up to date `sudo apt-get update`
 
@@ -83,7 +83,7 @@ Systemd (used by most modern Linux distributions such as Ubuntu, Debian, Fedora,
   - Enable on boot: `sudo systemctl enable ssh` (This ensures SSH starts automatically when the system boots)
   - Disable on boot: `sudo systemctl disable ssh` (This prevents SSH from starting automatically)
 
-## SSH Client <a name="ssh-client-configuration"></a>
+## SSH Client Configuration <a name="ssh-client-configuration"></a>
 
 
 
