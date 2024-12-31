@@ -2,6 +2,7 @@
 
 *   [SSH Overview](#ssh-and-how-ssh-works)
     * [SSH (Secure Shell)](#ssh-secure-shell)
+    * [SSH Architecture](#ssh-architecture)
 *   [SSH Server](#ssh-server-configuration)
 *   [SSH Client](#ssh-client-configuration)
 
@@ -14,7 +15,7 @@
 - ***Authentication:*** SSH provides strong authentication mechanisms to verify the identity of both the client and the server.   
 - ***Port forwarding:*** SSH can be used to create secure tunnels for other network protocols.
 
-***SSH Architecture:***
+***SSH Architecture*** <a name="ssh-architecture"></a> 
 SSH relies on the public-key cryptography to authenticate the remote system and allow it to authenticate the user trying to connect on it. SSH works on three hierarchical layers:
 - ***Transport layer:*** provides the server authentication, confidentiality and integrity, it also exposes the reserved port 22 used by default for the protocol
 - ***User authentication protocol:*** validates if the user is known by the server and the credentials are correct by testing a suite of user-authentication algorithms
