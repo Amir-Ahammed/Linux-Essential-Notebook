@@ -7,7 +7,7 @@
 
 ## SSH and How it Works <a name="ssh-and-how-ssh-works"></a>
 ***SSH (Secure Shell)*** <a name="ssh-secure-shell"></a> 
-is a network protocol that provides a secure channel over an unsecured network by encrypting the data transmitted between the client and the server. It's widely used by system administrators to manage servers remotely, and by developers to access their servers and deploy code.
+: is a network protocol that provides a secure channel over an unsecured network by encrypting the data transmitted between the client and the server. It's widely used by system administrators to manage servers remotely, and by developers to access their servers and deploy code.
 
 ***Key Features of SSH***
 - ***Encryption:*** SSH encrypts all communication between the client and the server, preventing eavesdropping and tampering.   
