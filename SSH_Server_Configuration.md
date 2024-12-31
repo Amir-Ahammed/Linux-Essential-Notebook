@@ -1,7 +1,7 @@
 ### Table of Contens
 
 *   [SSH and How it Works](#ssh-and-how-ssh-works)
-  - [SSH (Secure Shell)](#ssh-(secure-shell):)
+    - [SSH (Secure Shell)](#ssh-(secure-shell):)
 *   [SSH Server Configuration](#ssh-server-configuration)
 *   [SSH Client Configuration](#ssh-client-configuration)
 
