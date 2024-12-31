@@ -37,25 +37,16 @@ SSH relies on the public-key cryptography to authenticate the remote system and 
 
 ## SSH Server Configuration <a name="ssh-server-configuration"></a>
 ***Step 1: Update Your System -***
-First, make sure your system is up to date
-```
-sudo apt-get update
-```
+First, make sure your system is up to date `sudo apt-get update`
+
 ***Step 2: Install OpenSSH Server -***
-Install the OpenSSH server package.
-```
-sudo apt-get install openssh-server
-```
+Install the OpenSSH server package. `sudo apt-get install openssh-server`
 
 ***Step 3: Backup and Configure SSH Server***
-* ***Backup the SSH Configuration File:*** Before making any changes, it's always a good practice to create a backup of the existing configuration file.
-```
-sudo cp /etc/ssh/sshd_config /etc/ssh/sshd_config.bak
-```
-* ***Edit the SSH Configuration File:*** Open the SSH configuration file to customize settings.
-```
-sudo vim /etc/ssh/sshd_config
-```
+* ***Backup the SSH Configuration File:*** Before making any changes, it's always a good practice to create a backup of the existing configuration file.`
+sudo cp /etc/ssh/sshd_config /etc/ssh/sshd_config.bak`
+* ***Edit the SSH Configuration File:*** Open the SSH configuration file to customize settings.`sudo vim /etc/ssh/sshd_config`
+
 _Here are some common configurations you might want to adjust:_
   - ***Port:*** Change the default SSH port (default is 22): ``` Port: 2222 ```
   - ***PasswordAuthentication:*** Disable password authentication and use key-based authentication: ```PasswordAuthentication: no```
@@ -68,35 +59,18 @@ _Here are some common configurations you might want to adjust:_
 
     
 ***Step 4: Restart SSH Service -***
-Restart the SSH service to apply the changes.
-```
-sudo systemctl restart ssh
-```
+Restart the SSH service to apply the changes `sudo systemctl restart ssh`
+
 ***Step 5: Enable SSH on Boot -***
-Ensure SSH starts automatically on boot
-```
-sudo systemctl enable ssh
-```
+Ensure SSH starts automatically on boot `sudo systemctl enable ssh`
 
 ***Step 6: Test SSH Connection -***
-Test the SSH connection from another machine:
-```
-ssh -p port_number username@server_ip
-```
+Test the SSH connection from another machine `ssh -p port_number username@server_ip`
 
 ***Additional Security Measures***
-- ***Firewall:*** Ensure your firewall allows SSH traffic:
-  ```
-  sudo ufw allow 2222/tcp
-  ```
-  To check the firewall status
-  ```
-  sudo ufw status
-  ```
-- ***Fail2ban:*** Install Fail2ban to protect against brute-force attacks:
-  ```
-  sudo apt-get install fail2ban
-  ```
+- ***Firewall:*** Ensure your firewall allows SSH traffic `sudo ufw allow 2222/tcp`
+  - To check the firewall status `sudo ufw status`
+- ***Fail2ban:*** Install Fail2ban to protect against brute-force attacks `sudo apt-get install fail2ban`
 
 ***Manage SSH services :***
 Systemd (used by most modern Linux distributions such as Ubuntu, Debian, Fedora, and CentOS 7+) provides the following fundamental commands for controlling the SSH server.
