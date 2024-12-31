@@ -1,12 +1,13 @@
 ### Table of Contens
 
 *   [SSH and How it Works](#ssh-and-how-ssh-works)
-    - [SSH (Secure Shell)](#ssh-(secure-shell):)
+    * [SSH (Secure Shell)](#ssh-(secure-shell):)
 *   [SSH Server Configuration](#ssh-server-configuration)
 *   [SSH Client Configuration](#ssh-client-configuration)
 
-## SSH and How it Works <a name="ssh-and-how-ssh-works">
-### SSH (Secure Shell) <a name="ssh-(secure-shell):"></a> is a network protocol that provides a secure channel over an unsecured network by encrypting the data transmitted between the client and the server. It's widely used by system administrators to manage servers remotely, and by developers to access their servers and deploy code.
+## SSH and How it Works <a name="ssh-and-how-ssh-works"></a>
+### SSH (Secure Shell) <a name="ssh-(secure-shell):"></a> 
+is a network protocol that provides a secure channel over an unsecured network by encrypting the data transmitted between the client and the server. It's widely used by system administrators to manage servers remotely, and by developers to access their servers and deploy code.
 
 ***Key Features of SSH***
 - ***Encryption:*** SSH encrypts all communication between the client and the server, preventing eavesdropping and tampering.   
@@ -34,7 +35,7 @@ SSH relies on the public-key cryptography to authenticate the remote system and 
 8. The server decrypts the session key using its private key.
 9. The connection between the client and the server is now secured by encrypting each data using the session key.
 
-## SSH Server Configuration <a name="ssh-server-configuration">
+## SSH Server Configuration <a name="ssh-server-configuration"></a>
 ***Step 1: Update Your System -***
 First, make sure your system is up to date
 ```
@@ -107,7 +108,7 @@ Systemd (used by most modern Linux distributions such as Ubuntu, Debian, Fedora,
   - Enable on boot: `sudo systemctl enable ssh` (This ensures SSH starts automatically when the system boots)
   - Disable on boot: `sudo systemctl disable ssh` (This prevents SSH from starting automatically)
 
-## SSH Client Configuration <a name="ssh-client-configuration">
+## SSH Client Configuration <a name="ssh-client-configuration"></a>
 
 
 
