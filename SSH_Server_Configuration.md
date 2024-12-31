@@ -12,7 +12,7 @@ SSH relies on the public-key cryptography to authenticate the remote system and 
 - ***User authentication protocol:*** validates if the user is known by the server and the credentials are correct by testing a suite of user-authentication algorithms
 - ***Connection protocol:*** multiplexes the encrypted client server communication tunnel into several logical communication channels
 
-SSHdiagram.png
+Image/SSHdiagram.png
 
 ***SSH Configuration in Ubuntu Server***
 
