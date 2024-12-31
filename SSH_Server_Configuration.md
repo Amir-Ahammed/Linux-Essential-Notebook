@@ -1,4 +1,4 @@
-### Table of Contens
+### Table of Contents 
 
 *   [SSH Overview](#ssh-and-how-ssh-works)
     * [SSH (Secure Shell)](#ssh-secure-shell)
