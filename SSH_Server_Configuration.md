@@ -96,7 +96,7 @@ ssh -p port_number username@server_ip
   sudo apt-get install fail2ban
   ```
 
-***Manage SSH services: ***
+***Manage SSH services :***
 Systemd (used by most modern Linux distributions such as Ubuntu, Debian, Fedora, and CentOS 7+) provides the following fundamental commands for controlling the SSH server.
   - Start: `sudo systemctl start ssh`
   - Stop: `sudo systemctl stop ssh`
