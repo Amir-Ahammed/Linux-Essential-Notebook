@@ -1,10 +1,10 @@
 ### Table of Contens
 
-*   [SSH and How SSH Works](#ssh-and-how-ssh-works)
+*   [SSH and How it Works](#ssh-and-how-ssh-works)
 *   [SSH Server Configuration](#ssh-server-configuration)
-*   [Conclusion](#conclusion)
+*   [SSH Client Configuration](#ssh-client-configuration)
 
-## SSH and How SSH Works <a name="ssh-and-how-ssh-works">
+## SSH and How it Works <a name="ssh-and-how-ssh-works">
 ***SSH (Secure Shell):*** is a network protocol that provides a secure channel over an unsecured network by encrypting the data transmitted between the client and the server. It's widely used by system administrators to manage servers remotely, and by developers to access their servers and deploy code.
 
 ***Key Features of SSH***
@@ -106,9 +106,7 @@ Systemd (used by most modern Linux distributions such as Ubuntu, Debian, Fedora,
   - Enable on boot: `sudo systemctl enable ssh` (This ensures SSH starts automatically when the system boots)
   - Disable on boot: `sudo systemctl disable ssh` (This prevents SSH from starting automatically)
 
-
-## <span style="font-size: 20px;"><strong><em>SSH Client Configuration</em></strong></span>
-
+## SSH Client Configuration <a name="ssh-client-configuration">
 
 
 
