@@ -1,4 +1,10 @@
-## <span style="font-size: 20px;"><strong><em>SSH and How SSH Works</em></strong></span>
+### Table of Contens
+
+*   [SSH and How SSH Works](#SSH-and-How-SSH-Works)
+*   [SSH Server Configuration](#SSH-Server-Configuration)
+*   [Conclusion](#conclusion)
+
+## SSH and How SSH Works <a name="SSH-and-How-SSH-Works">
 ***SSH (Secure Shell):*** is a network protocol that provides a secure channel over an unsecured network by encrypting the data transmitted between the client and the server. It's widely used by system administrators to manage servers remotely, and by developers to access their servers and deploy code.
 
 ***Key Features of SSH***
@@ -27,8 +33,7 @@ SSH relies on the public-key cryptography to authenticate the remote system and 
 8. The server decrypts the session key using its private key.
 9. The connection between the client and the server is now secured by encrypting each data using the session key.
 
-## <span style="font-size: 20px;"><strong><em>SSH Server Configuration</em></strong></span>
-
+## SSH Server Configuration <a name="SSH-Server-Configuration">
 ***Step 1: Update Your System -***
 First, make sure your system is up to date
 ```
@@ -103,6 +108,8 @@ Systemd (used by most modern Linux distributions such as Ubuntu, Debian, Fedora,
 
 
 ## <span style="font-size: 20px;"><strong><em>SSH Client Configuration</em></strong></span>
+
+
 
 
 
