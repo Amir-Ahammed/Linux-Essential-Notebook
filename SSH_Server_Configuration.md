@@ -4,6 +4,7 @@
     * [SSH (Secure Shell)](#ssh-secure-shell)
     * [SSH Architecture](#ssh-architecture)
 *   [SSH Server Configuration](#ssh-server-configuration)
+*   [SSH `known_hosts`](#ssh-known-hosts)
 *   [SSH Client Configuration](#ssh-client-configuration)
 
 ## SSH Overview <a name="ssh-and-how-ssh-works"></a>
@@ -37,18 +38,18 @@
 9. The connection between the client and the server is now secured by encrypting each data using the session key.
 
 ## SSH Server Configuration <a name="ssh-server-configuration"></a>
-***Step 1: Update Your System -***
-First, make sure your system is up to date `sudo apt-get update`
 
-***Step 2: Install OpenSSH Server -***
-Install the OpenSSH server package. `sudo apt-get install openssh-server`
+***Step 1:*** First, make sure your system is up to date `sudo apt-get update`
 
-***Step 3: Backup and Configure SSH Server***
-* ***Backup the SSH Configuration File:*** Before making any changes, it's always a good practice to create a backup of the existing configuration file.`
+***Step 2:*** Install the OpenSSH server package. `sudo apt-get install openssh-server`
+
+***Step 3:*** Backup and Configure SSH Server
+*  ***Backup the SSH Configuration File:*** Before making any changes, it's always a good practice to create a backup of the existing configuration file.`
 sudo cp /etc/ssh/sshd_config /etc/ssh/sshd_config.bak`
-* ***Edit the SSH Configuration File:*** Open the SSH configuration file to customize settings.`sudo vim /etc/ssh/sshd_config`
+*  ***Edit the SSH Configuration File:*** Open the SSH configuration file to customize settings.`sudo vim /etc/ssh/sshd_config`
 
-_Here are some common configurations you might want to adjust:_
+_Here are some common configurations you might want to adjust:
+
   - ***Port:*** Change the default SSH port (default is 22): ``` Port: 2222 ```
   - ***PasswordAuthentication:*** Disable password authentication and use key-based authentication: ```PasswordAuthentication: no```
   - ***PermitEmptyPasswords:*** Prevent login with empty passwords: `PermitEmptyPasswords no`
@@ -57,23 +58,19 @@ _Here are some common configurations you might want to adjust:_
   - ***Protocol:*** Specify the SSH protocol versions supported (default is 2): `Protocol 2`
   - ***AllowUsers:*** Specify which users are allowed to connect: `AllowUsers your_username`
 
+***Step 4:*** Restart the SSH service to apply the changes `sudo systemctl restart ssh`
 
-    
-***Step 4: Restart SSH Service -***
-Restart the SSH service to apply the changes `sudo systemctl restart ssh`
+***Step 5:*** Ensure SSH starts automatically on boot `sudo systemctl enable ssh`
 
-***Step 5: Enable SSH on Boot -***
-Ensure SSH starts automatically on boot `sudo systemctl enable ssh`
-
-***Step 6: Test SSH Connection -***
-Test the SSH connection from another machine `ssh -p port_number username@server_ip`
+***Step 6:*** Test the SSH connection from another machine `ssh -p port_number username@server_ip`
 
 ***Additional Security Measures***
+
 - ***Firewall:*** Ensure your firewall allows SSH traffic `sudo ufw allow 2222/tcp`
   - To check the firewall status `sudo ufw status`
 - ***Fail2ban:*** Install Fail2ban to protect against brute-force attacks `sudo apt-get install fail2ban`
 
-***Manage SSH services :***
+***Manage SSH services***
 Systemd (used by most modern Linux distributions such as Ubuntu, Debian, Fedora, and CentOS 7+) provides the following fundamental commands for controlling the SSH server.
   - Start: `sudo systemctl start ssh`
   - Stop: `sudo systemctl stop ssh`
@@ -82,6 +79,48 @@ Systemd (used by most modern Linux distributions such as Ubuntu, Debian, Fedora,
   - Status: `sudo systemctl status ssh` (This shows whether the service is running, any recent logs, etc.)
   - Enable on boot: `sudo systemctl enable ssh` (This ensures SSH starts automatically when the system boots)
   - Disable on boot: `sudo systemctl disable ssh` (This prevents SSH from starting automatically)
+
+## SSH `known_hosts` <a name="ssh-known-hosts"></a>
+
+The `known_hosts` file is a crucial part of SSH security. It stores the public keys of SSH servers you've connected to, helping prevent man-in-the-middle (MITM) attacks.
+
+***What is `known_hosts`?***
+
+*   **Purpose:** Stores server public keys for verification on subsequent connections.
+*   **Location:** Typically `~/.ssh/known_hosts` (user-specific) or `/etc/ssh/ssh_known_hosts` (system-wide).
+*   **Functionality:** On the first connection, you're prompted to verify the server's key. Upon confirmation, the key is stored in `known_hosts`. Subsequent connections compare the server's key with the stored key. A mismatch triggers a warning.
+
+***Key Formats in `known_hosts`***
+
+Each line in `known_hosts` represents a known host and its key, generally in this format:
+
+`[hostname]:port keytype base64-encoded-key`
+
+*   **`[hostname]:port`:** The server's hostname or IP address and port number (e.g., `[example.com]:22`, `[192.168.1.100]:2222`).
+*   **`keytype`:** The key exchange algorithm (e.g., `ssh-rsa`, `ssh-ed25519`, `ecdsa-sha2-nistp256`).
+*   **`base64-encoded-key`:** The actual public key, encoded in base64.
+
+Example: <br>
+`[server.example.net]:22 ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAA...` <br>
+`[10.0.0.10]:2222 ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC...`
+
+***Clearing `known_hosts` File*** <br>
+
+*   Clearing the entire file requires you to re-verify the keys of all servers you connect to. `rm ~/.ssh/known_hosts`
+*   Manual Editing: You can manually edit the known_hosts file with a text editor `sudo vim ~/.ssh/known_hosts`
+
+***Best Practices***
+
+*   Use `ssh-keygen -R` to remove specific host entries.
+*   Be cautious when clearing the entire known_hosts file.
+*   Always verify host keys when connecting to a server for the first time, ideally through an out-of-band method.
+*   Prefer modern key exchange algorithms like `ssh-ed25519` when available.
+
+
+
+
+
+
 
 ## SSH Client Configuration <a name="ssh-client-configuration"></a>
 
