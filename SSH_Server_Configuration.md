@@ -77,7 +77,7 @@ PermitRootLogin no        # Disallow root login for security
 
 ## Configure SSH for Key-Based Authentication <a name="configure-ssh-for-key-based-authentication"><a/>
 
-On the Server
+**On the Server**
 
 ***Step 1: Backup the SSH Configuration File*** <br>
 It's always a good practice to create a backup of the existing configuration file:`sudo cp /etc/ssh/sshd_config /etc/ssh/sshd_config.bak`
@@ -94,43 +94,39 @@ PermitRootLogin no           # Optional: Disallow root login
 
 ***Step 5***: Restart the SSH service: `sudo systemctl restart ssh`
 
-On the Client
+**Additional Security Enhancements**
+
+* Change the default SSH port:
+  - Edit the configuration file: `sudo nano /etc/ssh/sshd_config`
+  - Modify Port: `Port 22 > Port 8888`
+  - Restart the SSH service: `sudo systemctl restart ssh`
+ 
+* Allow only specific users: `AllowUsers username`
+* Set up a firewall to allow SSH:
+```
+sudo ufw allow 22/tcp   # If using the default port
+sudo ufw enable
+sudo ufw status
+```
+* Fail2ban: Install Fail2ban to protect against brute-force attacks `sudo apt-get install fail2ban`
+
+**On the Client**
 
 ***Step 1***: Generate an SSH key pair: `ssh-keygen -t rsa -b 4096 -C "your_email@example.com"`
 *    Press `Enter` to accept the default file location `~/.ssh/id_rsa`.
 *    Optionally, set a passphrase for the private key.
 
-
-
-
-
+***Step 2***: Ensure the following settings are configured: `ssh-copy-id username@server_ip` (Enter the password for the user when prompted)
+   - Alternatively, manually copy the public key: `cat ~/.ssh/id_rsa.pub | ssh username@server_ip "mkdir -p ~/.ssh && cat >> ~/.ssh/authorized_keys && chmod 600 ~/.ssh/authorized_keys"`
 
 
 **Here are some common configurations you might want to adjust:**
 
-  - ***Port:*** Change the default SSH port (default is 22): ``` Port: 2222 ```
-  - ***PasswordAuthentication:*** Disable password authentication and use key-based authentication: ```PasswordAuthentication: no```
-  - ***PermitEmptyPasswords:*** Prevent login with empty passwords: `PermitEmptyPasswords no`
-  - ***PermitRootLogin:*** Control whether root can log in directly: `PermitRootLogin no`
   - ***ClientAliveInterval:*** Set the interval (in seconds) that the server will wait before sending a null packet to keep the connection alive: `ClientAliveInterval 300`
   - ***Protocol:*** Specify the SSH protocol versions supported (default is 2): `Protocol 2`
-  - ***AllowUsers:*** Specify which users are allowed to connect: `AllowUsers your_username`
 
-***Step 4:*** It's crucial to test the configuration for any further errors before reloading the service `sudo /usr/sbin/sshd -t`
+**Manage SSH services** 
 
-***Step 5:*** Restart the SSH service to apply the changes `sudo systemctl restart ssh`
-
-***Step 6:*** Ensure SSH starts automatically on boot `sudo systemctl enable ssh`
-
-***Step 7:*** Test the SSH connection from another machine `ssh -p port_number username@server_ip`
-
-**Additional Security Measures**
-
-- ***Firewall:*** Ensure your firewall allows SSH traffic `sudo ufw allow 2222/tcp`
-  - To check the firewall status `sudo ufw status`
-- ***Fail2ban:*** Install Fail2ban to protect against brute-force attacks `sudo apt-get install fail2ban`
-
-**Manage SSH services** <br>
 Systemd (used by most modern Linux distributions such as Ubuntu, Debian, Fedora, and CentOS 7+) provides the following fundamental commands for controlling the SSH server.
   - Start: `sudo systemctl start ssh`
   - Stop: `sudo systemctl stop ssh`
