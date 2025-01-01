@@ -48,7 +48,7 @@
 sudo cp /etc/ssh/sshd_config /etc/ssh/sshd_config.bak`
 *  ***Edit the SSH Configuration File:*** Open the SSH configuration file to customize settings.`sudo vim /etc/ssh/sshd_config`
 
-_Here are some common configurations you might want to adjust:
+**Here are some common configurations you might want to adjust:**
 
   - ***Port:*** Change the default SSH port (default is 22): ``` Port: 2222 ```
   - ***PasswordAuthentication:*** Disable password authentication and use key-based authentication: ```PasswordAuthentication: no```
@@ -64,13 +64,13 @@ _Here are some common configurations you might want to adjust:
 
 ***Step 6:*** Test the SSH connection from another machine `ssh -p port_number username@server_ip`
 
-***Additional Security Measures***
+**Additional Security Measures**
 
 - ***Firewall:*** Ensure your firewall allows SSH traffic `sudo ufw allow 2222/tcp`
   - To check the firewall status `sudo ufw status`
 - ***Fail2ban:*** Install Fail2ban to protect against brute-force attacks `sudo apt-get install fail2ban`
 
-***Manage SSH services***
+**Manage SSH services** <br>
 Systemd (used by most modern Linux distributions such as Ubuntu, Debian, Fedora, and CentOS 7+) provides the following fundamental commands for controlling the SSH server.
   - Start: `sudo systemctl start ssh`
   - Stop: `sudo systemctl stop ssh`
