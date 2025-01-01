@@ -65,7 +65,13 @@ It's always a good practice to create a backup of the existing configuration fil
 ***Step 3*** Ensure the following settings are configured:
 ```
 PasswordAuthentication yes
-PermitRootLogin no        # Disallow root login for security
+PermitRootLogin no          # Prevent direct root login for security reasons.
+PermitEmptyPasswords no     # Prevent login for accounts with empty passwords.
+ClientAliveInterval 300     # Detect and terminate idle SSH sessions to prevent resource hogging or security risks.
+ClientAliveCountMax 3       # Detect and terminate idle SSH sessions to prevent resource hogging or security risks.
+AllowUsers username         # Optional: Restrict SSH access to specific users or groups to limit exposure
+AllowGroups sshusers        # Optional: Restrict SSH access to specific users or groups to limit exposure
+MaxAuthTries 3              # Limit the number of failed authentication attempts to prevent brute force attacks
 ```
 ***Step 5***: Test the configuration for any further errors before reloading the service: `sudo /usr/sbin/sshd -t`
 
@@ -82,13 +88,21 @@ PermitRootLogin no        # Disallow root login for security
 ***Step 1: Backup the SSH Configuration File*** <br>
 It's always a good practice to create a backup of the existing configuration file:`sudo cp /etc/ssh/sshd_config /etc/ssh/sshd_config.bak`
 
-***Step 2***: Edit the SSH configuration file: `sudo nano /etc/ssh/sshd_config`
+***Step 2***: Edit the SSH configuration file: `sudo vim /etc/ssh/sshd_config`
 
 ***Step 3***: Modify the following settings: 
 ```
 PubkeyAuthentication yes
-PasswordAuthentication no   # Optional: Disable password login for security
-PermitRootLogin no           # Optional: Disallow root login
+PasswordAuthentication no   # Disable password login for security
+PermitRootLogin no          # Prevent direct root login for security reasons.
+ClientAliveInterval 300     # Detect and terminate idle SSH sessions to prevent resource hogging or security risks.
+ClientAliveCountMax 3       # Detect and terminate idle SSH sessions to prevent resource hogging or security risks.
+Protocol 2                  # Optional: Specifies the SSH protocol version. SSH protocol version 2 is more secure and is the default in modern systems.
+AllowUsers username         # Optional: Restrict SSH access to specific users or groups to limit exposure
+AllowGroups sshusers        # Optional: Restrict SSH access to specific users or groups to limit exposure
+MaxAuthTries 3              # Limit the number of failed authentication attempts to prevent brute force attacks
+
+ 
 ```
 ***Step 4***: Test the configuration for any further errors before reloading the service: `sudo /usr/sbin/sshd -t`
 
@@ -97,11 +111,12 @@ PermitRootLogin no           # Optional: Disallow root login
 **Additional Security Enhancements**
 
 * Change the default SSH port:
-  - Edit the configuration file: `sudo nano /etc/ssh/sshd_config`
-  - Modify Port: `Port 22 > Port 8888`
+  - Edit the configuration file: `sudo vim /etc/ssh/sshd_config`
+  - Modify Port: `Port 22 > Port 8888` |  If you changed the port, use the command: `ssh -p 2222 username@server_ip`
   - Restart the SSH service: `sudo systemctl restart ssh`
  
 * Allow only specific users: `AllowUsers username`
+  
 * Set up a firewall to allow SSH:
 ```
 sudo ufw allow 22/tcp   # If using the default port
