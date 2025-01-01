@@ -71,7 +71,7 @@ SSH supports several authentication methods, but the two most common are:
 * Session Establishment:
     - Upon successful authentication, the server grants access, and the session begins.
 
-![SSH Diagram](Image/SSHdiagram.png)
+![SSH Diagram](Image/ssh-authentication.png)
 
 ## SSH Server Installation <a name="ssh-server-installation"></a>
 
