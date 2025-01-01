@@ -3,6 +3,7 @@
 *   [SSH Overview](#ssh-and-how-ssh-works)
     * [SSH (Secure Shell)](#ssh-secure-shell)
     * [SSH Architecture](#ssh-architecture)
+    * [Key Features of SSH](#key_features)
 *   [SSH Authentication Methods](#ssh-authentication)
 *   [SSH Server Configuration](#ssh-server-configuration)
 *   [SSH `known_hosts`](#ssh-known-hosts)
@@ -12,7 +13,7 @@
 ***SSH (Secure Shell)*** <a name="ssh-secure-shell"></a> 
 : is a network protocol that provides a secure channel over an unsecured network by encrypting the data transmitted between the client and the server. It's widely used by system administrators to manage servers remotely, and by developers to access their servers and deploy code.
 
-***Key Features of SSH***
+***Key Features of SSH*** <a name="key_features"></a>
 - ***Encryption:*** SSH encrypts all communication between the client and the server, preventing eavesdropping and tampering.   
 - ***Authentication:*** SSH provides strong authentication mechanisms to verify the identity of both the client and the server.   
 - ***Port forwarding:*** SSH can be used to create secure tunnels for other network protocols.
