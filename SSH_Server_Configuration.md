@@ -4,6 +4,7 @@
     * [SSH (Secure Shell)](#ssh-secure-shell)
     * [Key Features of SSH](#key_features)
     * [SSH Architecture](#ssh-architecture)
+*   [SSH Authentication](#ssh-authentication)
 *   [SSH Server Installation](#ssh-server-Installation)
 *   [Configure SSH for Password-Based Authentication](#configure-ssh-for-password-based-authentication)
 *   [Configure SSH for Key-Based Authentication](#configure-ssh-for-key-based-authentication)
@@ -40,7 +41,7 @@
 8. The server decrypts the session key using its private key.
 9. The connection between the client and the server is now secured by encrypting each data using the session key.
 
-***SSH Authentication Methods*** <a name="ssh-authentication"></a> :
+## SSH Authentication <a name="ssh-authentication"></a> :
 SSH supports several authentication methods, but the two most common are:
 
 *   Password-based authentication: The user provides their password to authenticate.
