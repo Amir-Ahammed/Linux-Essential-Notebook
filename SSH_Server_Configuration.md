@@ -2,8 +2,8 @@
 
 *   [SSH Overview](#ssh-and-how-ssh-works)
     * [SSH (Secure Shell)](#ssh-secure-shell)
-    * [SSH Architecture](#ssh-architecture)
     * [Key Features of SSH](#key_features)
+    * [SSH Architecture](#ssh-architecture)
 *   [SSH Authentication Methods](#ssh-authentication)
 *   [SSH Server Configuration](#ssh-server-configuration)
 *   [SSH `known_hosts`](#ssh-known-hosts)
