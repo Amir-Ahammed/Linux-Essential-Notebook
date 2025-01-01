@@ -7,6 +7,7 @@
 *   [SSH Server Installation](#ssh-server-Installation)
 *   [Configure SSH for Password-Based Authentication](#configure-ssh-for-password-based-authentication)
 *   [Configure SSH for Key-Based Authentication](#configure-ssh-for-key-based-authentication)
+*   [Manage SSH services](#manage-ssh)
 *   [SSH #known_hosts](#ssh-known-hosts)
 *   [SSH Client Configuration](#ssh-client-configuration)
 
@@ -102,9 +103,9 @@ MaxAuthTries 3              # Limit the number of failed authentication attempts
 
  
 ```
-***Step 4***: Test the configuration for any further errors before reloading the service: `sudo /usr/sbin/sshd -t`
+***Step 4: Test the configuration***: for any further errors before reloading the service: `sudo /usr/sbin/sshd -t`
 
-***Step 5***: Restart the SSH service: `sudo systemctl restart ssh`
+***Step 5: Restart Service***: Restart the SSH service to apply changes: `sudo systemctl restart ssh`
 
 **Additional Security Enhancements**
 
@@ -132,13 +133,7 @@ sudo ufw status
 ***Step 2***: Ensure the following settings are configured: `ssh-copy-id username@server_ip` (Enter the password for the user when prompted)
    - Alternatively, manually copy the public key: `cat ~/.ssh/id_rsa.pub | ssh username@server_ip "mkdir -p ~/.ssh && cat >> ~/.ssh/authorized_keys && chmod 600 ~/.ssh/authorized_keys"`
 
-
-**Here are some common configurations you might want to adjust:**
-
-  - ***ClientAliveInterval:*** Set the interval (in seconds) that the server will wait before sending a null packet to keep the connection alive: `ClientAliveInterval 300`
-  - ***Protocol:*** Specify the SSH protocol versions supported (default is 2): `Protocol 2`
-
-**Manage SSH services** 
+## Manage SSH services <a name="manage-ssh"></a> 
 
 Systemd (used by most modern Linux distributions such as Ubuntu, Debian, Fedora, and CentOS 7+) provides the following fundamental commands for controlling the SSH server.
   - Start: `sudo systemctl start ssh`
