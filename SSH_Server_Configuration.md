@@ -103,6 +103,7 @@ Each line in `known_hosts` represents a known host and its key, generally in thi
 *   **`base64-encoded-key`:** The actual public key, encoded in base64.
 
 Example: <br>
+<br>
 `[server.example.net]:22 ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAA...` <br>
 `[10.0.0.10]:2222 ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC...`
 
@@ -118,13 +119,60 @@ Example: <br>
 *   Always verify host keys when connecting to a server for the first time, ideally through an out-of-band method.
 *   Prefer modern key exchange algorithms like `ssh-ed25519` when available.
 
-
-
-
-
-
-
 ## SSH Client Configuration <a name="ssh-client-configuration"></a>
+
+SSH client configuration involves setting options that control how your SSH client behaves when connecting to servers. These options can be set globally for all users on a system or on a per-user basis.
+
+**Configuration Files** <br>
+*   **Global Configuration:** `/etc/ssh/ssh_config` (affects all users)
+*   **Per-User Configuration:** `~/.ssh/config` (affects only the current user; overrides global settings)
+
+**Key Configuration Options** <br>
+| Option                 | Description                                                                                                                                                                                                                                                                    | Example                                                                     |
+| :--------------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :-------------------------------------------------------------------------- |
+| `Host`                 | Defines a specific host or group of hosts for which the following options apply. Supports wildcards (`*`, `?`).                                                                                                                                                                  | `Host server1.example.com`, `Host 192.168.1.*`, `Host *.example.net`        |
+| `Hostname`             | Specifies the real hostname or IP address of the server.                                                                                                                                                                                                                     | `Hostname server1.example.com`, `Hostname 192.168.1.100`                    |
+| `Port`                 | Specifies the port number to connect to (default is 22).                                                                                                                                                                                                                       | `Port 2222`                                                               |
+| `User`                 | Specifies the username to use for authentication.                                                                                                                                                                                                                              | `User myuser`                                                             |
+| `IdentityFile`         | Specifies the path to the private key file.                                                                                                                                                                                                                                     | `IdentityFile ~/.ssh/id_rsa`, `IdentityFile ~/.ssh/my_special_key`         |
+| `IdentitiesOnly`       | If `yes`, only uses explicitly specified `IdentityFile` keys, ignoring SSH agent.                                                                                                                                                                                              | `IdentitiesOnly yes`                                                      |
+| `StrictHostKeyChecking` | Controls host key checking: `ask` (default, prompts on first connection or change), `no` (accepts all keys - **INSECURE**), `yes` (strictly checks `known_hosts`).                                                                                                                  | `StrictHostKeyChecking yes`                                                |
+| `UserKnownHostsFile`   | Specifies the path to the `known_hosts` file.                                                                                                                                                                                                                                 | `UserKnownHostsFile ~/.ssh/my_known_hosts`                                |
+| `ProxyJump`            | Jumps through an intermediate host (e.g., `user@jump_host user@destination_host`).                                                                                                                                                                                               | `ProxyJump user@intermediate_host user@destination_host`                 |
+| `ForwardAgent`         | Enables SSH agent forwarding (allows using local keys on the remote server).                                                                                                                                                                                                   | `ForwardAgent yes`                                                        |
+| `ServerAliveInterval`  | Sends null packets to keep the connection alive (in seconds).                                                                                                                                                                                                                  | `ServerAliveInterval 60`                                                   |
+| `ServerAliveCountMax`  | Number of server alive messages without response before disconnecting.                                                                                                                                                                                                         | `ServerAliveCountMax 3`                                                   |
+| `Ciphers`              | Specifies allowed ciphers in order of preference (e.g., `chacha20-poly1305@openssh.com,aes256-gcm@openssh.com`). Use with caution. Consider using defaults unless you have a specific need. Refer to `man ssh_config` for more information.                                          | `Ciphers chacha20-poly1305@openssh.com,aes256-gcm@openssh.com`              |
+| `KexAlgorithms`        | Specifies allowed key exchange algorithms (e.g., `curve25519-sha256,diffie-hellman-group-exchange-sha256`). Use with caution. Consider using defaults unless you have a specific need. Refer to `man ssh_config` for more information.                                          | `KexAlgorithms curve25519-sha256,diffie-hellman-group-exchange-sha256` |
+
+**Example `~/.ssh/config` file:**
+
+```
+Host server1
+    Hostname server1.example.com
+    User myuser
+    IdentityFile ~/.ssh/id_rsa
+
+Host server2
+    Hostname 192.168.1.100
+    Port 2222
+    User anotheruser
+    IdentityFile ~/.ssh/another_key
+    StrictHostKeyChecking yes
+
+Host jump_server
+    Hostname jump.example.net
+    User jumpuser
+    IdentityFile ~/.ssh/jump_key
+
+Host internal_server
+    Hostname internal.example.local
+    User internaluser
+    ProxyJump jumpuser@jump.example.net
+    IdentityFile ~/.ssh/internal_key
+```
+
+
 
 
 
