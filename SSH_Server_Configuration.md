@@ -45,14 +45,43 @@ SSH supports several authentication methods, but the two most common are:
 
 ## SSH Server Installation <a name="ssh-server-installation"></a>
 
-***Step 1:*** First, make sure your system is up to date `sudo apt-get update`
+***Step 1:*** First, make sure your system is up to date: `sudo apt-get update`
 
-***Step 2:*** Install the OpenSSH server package. `sudo apt-get install openssh-server`
+***Step 2:*** Install the OpenSSH server package: `sudo apt-get install openssh-server`
 
-***Step 3:*** Backup and Configure SSH Server
-*  ***Backup the SSH Configuration File:*** Before making any changes, it's always a good practice to create a backup of the existing configuration file.`
-sudo cp /etc/ssh/sshd_config /etc/ssh/sshd_config.bak`
-*  ***Edit the SSH Configuration File:*** Open the SSH configuration file to customize settings.`sudo vim /etc/ssh/sshd_config`
+***Step 3:*** Verify that the SSH service is running: `sudo systemctl status ssh`
+*    If it’s not active, start it: `sudo systemctl start ssh`
+*    Enable it to start on boot: `sudo systemctl enable ssh`
+
+## Configure SSH for Password-Based Authentication <a name="configure-ssh-for-password-based-authentication"><a/>
+
+***Step 1: Backup the SSH Configuration File*** <br>
+It's always a good practice to create a backup of the existing configuration file:`sudo cp /etc/ssh/sshd_config /etc/ssh/sshd_config.bak`
+
+***Step 2: Edit the SSH Configuration File*** <br> Open the SSH configuration file to customize settings:`sudo vim /etc/ssh/sshd_config`
+
+***Step 3: Ensure the following settings are configured:***
+```
+PasswordAuthentication yes
+PermitRootLogin no        # Disallow root login for security
+```
+
+***Step 4: Restart the SSH service to apply changes:***
+`sudo systemctl restart ssh`
+
+***Step 5: Test password-based login:*** <br> On the client machine, connect using: `ssh username@server_ip`
+
+
+## Configure SSH for Key-Based Authentication <a name="configure-ssh-for-key-based-authentication"><a/>
+
+***Step 3:***
+
+
+
+
+
+
+
 
 **Here are some common configurations you might want to adjust:**
 
