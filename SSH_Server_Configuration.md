@@ -58,11 +58,13 @@ sudo cp /etc/ssh/sshd_config /etc/ssh/sshd_config.bak`
   - ***Protocol:*** Specify the SSH protocol versions supported (default is 2): `Protocol 2`
   - ***AllowUsers:*** Specify which users are allowed to connect: `AllowUsers your_username`
 
-***Step 4:*** Restart the SSH service to apply the changes `sudo systemctl restart ssh`
+***Step 4:*** It's crucial to test the configuration for any further errors before reloading the service `sudo /usr/sbin/sshd -t`
 
-***Step 5:*** Ensure SSH starts automatically on boot `sudo systemctl enable ssh`
+***Step 5:*** Restart the SSH service to apply the changes `sudo systemctl restart ssh`
 
-***Step 6:*** Test the SSH connection from another machine `ssh -p port_number username@server_ip`
+***Step 6:*** Ensure SSH starts automatically on boot `sudo systemctl enable ssh`
+
+***Step 7:*** Test the SSH connection from another machine `ssh -p port_number username@server_ip`
 
 **Additional Security Measures**
 
