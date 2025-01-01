@@ -4,8 +4,7 @@
     * [SSH (Secure Shell)](#ssh-secure-shell)
     * [Key Features of SSH](#key_features)
     * [SSH Architecture](#ssh-architecture)
-*   [SSH Authentication Methods](#ssh-authentication)
-*   [SSH Server Configuration](#ssh-server-configuration)
+*   [SSH Server Installation](#ssh-server-Installation)
 *   [SSH `known_hosts`](#ssh-known-hosts)
 *   [SSH Client Configuration](#ssh-client-configuration)
 
@@ -26,8 +25,7 @@
 
 ![SSH Diagram](Image/SSHdiagram.png)
 
-**Detailed steps:**
-
+**Detailed steps**
 1. The client initiates a TCP connection to the SSH server on port 22 (default reserved port).
 2. The server responds to the client’s connection and they establish a TCP handshake.
 3. The server sends its identification string to the client with various informations (protocol version, etc).
@@ -39,10 +37,13 @@
 8. The server decrypts the session key using its private key.
 9. The connection between the client and the server is now secured by encrypting each data using the session key.
 
-## SSH Authentication Methods <a name="ssh-authentication"></a>
+***SSH Authentication Methods*** <a name="ssh-authentication"></a> :
+SSH supports several authentication methods, but the two most common are:
 
+*   Password-based authentication: The user provides their password to authenticate.
+*   Key-based authentication: The user uses a cryptographic key pair (a private key and a public key) for authentication.
 
-## SSH Server Configuration <a name="ssh-server-configuration"></a>
+## SSH Server Installation <a name="ssh-server-installation"></a>
 
 ***Step 1:*** First, make sure your system is up to date `sudo apt-get update`
 
