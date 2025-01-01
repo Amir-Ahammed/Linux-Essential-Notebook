@@ -48,8 +48,30 @@ SSH (Secure Shell) authentication is a mechanism used to securely verify the ide
 ***Authentication Methods*** <br>
 SSH supports several authentication methods, but the two most common are:
 
-*   Password-based authentication: The user provides their password to authenticate.
+*   Password-based authentication:
+    - The client sends a username and password to the server.
+    - The server checks the credentials against its authentication database (e.g., /etc/passwd or LDAP)
 *   Key-based authentication: The user uses a cryptographic key pair (a private key and a public key) for authentication.
+    - The client generates a key pair:
+      - Private Key: Stored securely on the client.
+      - Public Key: Copied to the server and stored in ~/.ssh/authorized_keys.
+    - During authentication, the server validates the client by challenging the private key.
+ 
+***Authentication Process Workflow***
+
+* Connection Initialization:
+    - The client initiates an SSH session with the server.
+    - The server responds with its host key, and the client verifies it.
+* Secure Channel Establishment:
+    - A secure encrypted channel is created using the SSH transport layer.
+* Authentication:
+    - The server prompts the client for authentication.
+    - The client submits credentials (e.g., password, key, or token).
+    - The server validates the credentials against its authentication mechanism.
+* Session Establishment:
+    - Upon successful authentication, the server grants access, and the session begins.
+
+![SSH Diagram](Image/SSHdiagram.png)
 
 ## SSH Server Installation <a name="ssh-server-installation"></a>
 
