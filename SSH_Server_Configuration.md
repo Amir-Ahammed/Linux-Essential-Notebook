@@ -5,6 +5,8 @@
     * [Key Features of SSH](#key_features)
     * [SSH Architecture](#ssh-architecture)
 *   [SSH Server Installation](#ssh-server-Installation)
+*   [Configure SSH for Password-Based Authentication](#configure-ssh-for-password-based-authentication)
+*   [Configure SSH for Key-Based Authentication](#configure-ssh-for-key-based-authentication)
 *   [SSH `known_hosts`](#ssh-known-hosts)
 *   [SSH Client Configuration](#ssh-client-configuration)
 
