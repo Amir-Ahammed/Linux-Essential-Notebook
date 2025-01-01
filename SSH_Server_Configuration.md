@@ -3,7 +3,7 @@
 *   [SSH Overview](#ssh-and-how-ssh-works)
     * [SSH (Secure Shell)](#ssh-secure-shell)
     * [Key Features of SSH](#key_features)
-    * [SSH Architecture](#ssh-architecture)
+*   [SSH Architecture](#ssh-architecture)
 *   [SSH Authentication](#ssh-authentication)
 *   [SSH Server Installation](#ssh-server-Installation)
 *   [Configure SSH for Password-Based Authentication](#configure-ssh-for-password-based-authentication)
@@ -21,8 +21,9 @@
 - ***Authentication:*** SSH provides strong authentication mechanisms to verify the identity of both the client and the server.   
 - ***Port forwarding:*** SSH can be used to create secure tunnels for other network protocols.
 
-***SSH Architecture*** <a name="ssh-architecture"></a> 
-: SSH relies on the public-key cryptography to authenticate the remote system and allow it to authenticate the user trying to connect on it. SSH works on three hierarchical layers:
+## SSH Architecture <a name="ssh-architecture"></a> 
+SSH relies on the public-key cryptography to authenticate the remote system and allow it to authenticate the user trying to connect on it. SSH works on three hierarchical layers:
+
 - ***Transport layer:*** provides the server authentication, confidentiality and integrity, it also exposes the reserved port 22 used by default for the protocol
 - ***User authentication protocol:*** validates if the user is known by the server and the credentials are correct by testing a suite of user-authentication algorithms
 - ***Connection protocol:*** multiplexes the encrypted client server communication tunnel into several logical communication channels
@@ -41,7 +42,10 @@
 8. The server decrypts the session key using its private key.
 9. The connection between the client and the server is now secured by encrypting each data using the session key.
 
-## SSH Authentication <a name="ssh-authentication"></a> :
+## SSH Authentication <a name="ssh-authentication"></a>
+SSH (Secure Shell) authentication is a mechanism used to securely verify the identity of users or systems connecting to a remote machine via the SSH protocol. The process ensures that only authorized entities gain access to the server and its resources. 
+
+***Authentication Methods*** <br>
 SSH supports several authentication methods, but the two most common are:
 
 *   Password-based authentication: The user provides their password to authenticate.
@@ -65,6 +69,7 @@ SSH supports several authentication methods, but the two most common are:
 
 ***Step 3*** Ensure the following settings are configured:
 ```
+Port 2222                   # Use a non-standard port to reduce exposure to automated scans.
 PasswordAuthentication yes
 PermitRootLogin no          # Prevent direct root login for security reasons.
 PermitEmptyPasswords no     # Prevent login for accounts with empty passwords.
@@ -78,7 +83,7 @@ MaxAuthTries 3              # Limit the number of failed authentication attempts
 
 ***Step 4: Restart Service***: Restart the SSH service to apply changes: `sudo systemctl restart ssh`
 
-***Step 5: login Test:***: On the client machine, connect using: `ssh username@server_ip`
+***Step 5: login Test:*** On the client machine, connect using: `ssh -p 2222 username@server_ip`
 
 
 ## Configure SSH for Key-Based Authentication <a name="configure-ssh-for-key-based-authentication"><a/>
@@ -92,6 +97,7 @@ It's always a good practice to create a backup of the existing configuration fil
 
 ***Step 3***: Modify the following settings: 
 ```
+Port 2222                   # Use a non-standard port to reduce exposure to automated scans.
 PubkeyAuthentication yes
 PasswordAuthentication no   # Disable password login for security
 PermitRootLogin no          # Prevent direct root login for security reasons.
@@ -108,14 +114,18 @@ MaxAuthTries 3              # Limit the number of failed authentication attempts
 
 ***Step 5: Restart Service***: Restart the SSH service to apply changes: `sudo systemctl restart ssh`
 
-**Additional Security Enhancements**
+**On the Client**
 
-* Change the default SSH port:
-  - Edit the configuration file: `sudo vim /etc/ssh/sshd_config`
-  - Modify Port: `Port 22 > Port 8888` |  If you changed the port, use the command: `ssh -p 2222 username@server_ip`
-  - Restart the SSH service: `sudo systemctl restart ssh`
- 
-* Allow only specific users: `AllowUsers username`
+***Step 1***: Generate an SSH key pair: `ssh-keygen -t rsa -b 4096 -C "your_email@example.com"`
+*    Press `Enter` to accept the default file location `~/.ssh/id_rsa`.
+*    Optionally, set a passphrase for the private key.
+
+***Step 2***: Copy the public key to the server: `ssh-copy-id username@server_ip` (Enter the password for the user when prompted)
+   - Alternatively, manually copy the public key: `cat ~/.ssh/id_rsa.pub | ssh username@server_ip "mkdir -p ~/.ssh && cat >> ~/.ssh/authorized_keys && chmod 600 ~/.ssh/authorized_keys"`
+
+***Step 3: login Test***: On the client machine, connect using: `ssh -p 2222 username@server_ip`
+
+**Additional Security Enhancements**
   
 * Set up a firewall to allow SSH:
 ```
@@ -125,14 +135,6 @@ sudo ufw status
 ```
 * Fail2ban: Install Fail2ban to protect against brute-force attacks `sudo apt-get install fail2ban`
 
-**On the Client**
-
-***Step 1***: Generate an SSH key pair: `ssh-keygen -t rsa -b 4096 -C "your_email@example.com"`
-*    Press `Enter` to accept the default file location `~/.ssh/id_rsa`.
-*    Optionally, set a passphrase for the private key.
-
-***Step 2***: Ensure the following settings are configured: `ssh-copy-id username@server_ip` (Enter the password for the user when prompted)
-   - Alternatively, manually copy the public key: `cat ~/.ssh/id_rsa.pub | ssh username@server_ip "mkdir -p ~/.ssh && cat >> ~/.ssh/authorized_keys && chmod 600 ~/.ssh/authorized_keys"`
 
 ## Manage SSH services <a name="manage-ssh"></a> 
 
