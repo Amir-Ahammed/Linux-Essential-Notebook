@@ -57,10 +57,9 @@ SSH supports several authentication methods, but the two most common are:
 
 ## Configure SSH for Password-Based Authentication <a name="configure-ssh-for-password-based-authentication"><a/>
 
-***Step 1: Backup the SSH Configuration File*** <br>
-It's always a good practice to create a backup of the existing configuration file:`sudo cp /etc/ssh/sshd_config /etc/ssh/sshd_config.bak`
+***Step 1: Backup the SSH Configuration File***: It's always a good practice to create a backup of the existing configuration file:`sudo cp /etc/ssh/sshd_config /etc/ssh/sshd_config.bak`
 
-***Step 2: Edit the SSH Configuration File*** <br> Open the SSH configuration file to customize settings:`sudo vim /etc/ssh/sshd_config`
+***Step 2: Edit the SSH Configuration File***: Open the SSH configuration file to customize settings:`sudo vim /etc/ssh/sshd_config`
 
 ***Step 3*** Ensure the following settings are configured:
 ```
@@ -73,12 +72,11 @@ AllowUsers username         # Optional: Restrict SSH access to specific users or
 AllowGroups sshusers        # Optional: Restrict SSH access to specific users or groups to limit exposure
 MaxAuthTries 3              # Limit the number of failed authentication attempts to prevent brute force attacks
 ```
-***Step 5***: Test the configuration for any further errors before reloading the service: `sudo /usr/sbin/sshd -t`
+***Step 5: Test the configuration***: for any further errors before reloading the service: `sudo /usr/sbin/sshd -t`
 
-***Step 4***: Restart the SSH service to apply changes:
-`sudo systemctl restart ssh`
+***Step 4: Restart Service***: Restart the SSH service to apply changes: `sudo systemctl restart ssh`
 
-***Step 5: Test password-based login:*** <br> On the client machine, connect using: `ssh username@server_ip`
+***Step 5: login Test:***: On the client machine, connect using: `ssh username@server_ip`
 
 
 ## Configure SSH for Key-Based Authentication <a name="configure-ssh-for-key-based-authentication"><a/>
