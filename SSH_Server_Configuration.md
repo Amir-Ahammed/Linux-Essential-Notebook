@@ -62,13 +62,14 @@ It's always a good practice to create a backup of the existing configuration fil
 
 ***Step 2: Edit the SSH Configuration File*** <br> Open the SSH configuration file to customize settings:`sudo vim /etc/ssh/sshd_config`
 
-***Step 3: Ensure the following settings are configured:***
+***Step 3*** Ensure the following settings are configured:
 ```
 PasswordAuthentication yes
 PermitRootLogin no        # Disallow root login for security
 ```
+***Step 5***: Test the configuration for any further errors before reloading the service: `sudo /usr/sbin/sshd -t`
 
-***Step 4: Restart the SSH service to apply changes:***
+***Step 4***: Restart the SSH service to apply changes:
 `sudo systemctl restart ssh`
 
 ***Step 5: Test password-based login:*** <br> On the client machine, connect using: `ssh username@server_ip`
@@ -76,8 +77,28 @@ PermitRootLogin no        # Disallow root login for security
 
 ## Configure SSH for Key-Based Authentication <a name="configure-ssh-for-key-based-authentication"><a/>
 
-***Step 3:***
+On the Server
 
+***Step 1: Backup the SSH Configuration File*** <br>
+It's always a good practice to create a backup of the existing configuration file:`sudo cp /etc/ssh/sshd_config /etc/ssh/sshd_config.bak`
+
+***Step 2***: Edit the SSH configuration file: `sudo nano /etc/ssh/sshd_config`
+
+***Step 3***: Modify the following settings: 
+```
+PubkeyAuthentication yes
+PasswordAuthentication no   # Optional: Disable password login for security
+PermitRootLogin no           # Optional: Disallow root login
+```
+***Step 4***: Test the configuration for any further errors before reloading the service: `sudo /usr/sbin/sshd -t`
+
+***Step 5***: Restart the SSH service: `sudo systemctl restart ssh`
+
+On the Client
+
+***Step 1***: Generate an SSH key pair: `ssh-keygen -t rsa -b 4096 -C "your_email@example.com"`
+*    Press `Enter` to accept the default file location `~/.ssh/id_rsa`.
+*    Optionally, set a passphrase for the private key.
 
 
 
