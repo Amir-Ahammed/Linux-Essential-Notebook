@@ -7,7 +7,7 @@
 *   [SSH Server Installation](#ssh-server-Installation)
 *   [Configure SSH for Password-Based Authentication](#configure-ssh-for-password-based-authentication)
 *   [Configure SSH for Key-Based Authentication](#configure-ssh-for-key-based-authentication)
-*   [SSH `known_hosts`](#ssh-known-hosts)
+*   [SSH #known_hosts](#ssh-known-hosts)
 *   [SSH Client Configuration](#ssh-client-configuration)
 
 ## SSH Overview <a name="ssh-and-how-ssh-works"></a>
@@ -140,7 +140,7 @@ Systemd (used by most modern Linux distributions such as Ubuntu, Debian, Fedora,
   - Enable on boot: `sudo systemctl enable ssh` (This ensures SSH starts automatically when the system boots)
   - Disable on boot: `sudo systemctl disable ssh` (This prevents SSH from starting automatically)
 
-## SSH `known_hosts` <a name="ssh-known-hosts"></a>
+## SSH #known_hosts <a name="ssh-known-hosts"></a>
 
 The `known_hosts` file is a crucial part of SSH security. It stores the public keys of SSH servers you've connected to, helping prevent man-in-the-middle (MITM) attacks.
 
