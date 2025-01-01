@@ -39,6 +39,9 @@
 8. The server decrypts the session key using its private key.
 9. The connection between the client and the server is now secured by encrypting each data using the session key.
 
+## SSH Authentication Methods <a name="ssh-authentication"></a>
+
+
 ## SSH Server Configuration <a name="ssh-server-configuration"></a>
 
 ***Step 1:*** First, make sure your system is up to date `sudo apt-get update`
