@@ -85,7 +85,7 @@ SSH supports several authentication methods, but the two most common are:
 
 ## Configure SSH for Password-Based Authentication <a name="configure-ssh-for-password-based-authentication"><a/>
 
-***Step 1: Backup the SSH Configuration File***: It's always a good practice to create a backup of the existing configuration file:`sudo cp /etc/ssh/sshd_config /etc/ssh/sshd_config.bak`
+***Step 1: Backup the Configuration File***: It's always a good practice to create a backup of the existing configuration file: `sudo cp /etc/ssh/sshd_config /etc/ssh/sshd_config.bak`
 
 ***Step 2: Edit the SSH Configuration File***: Open the SSH configuration file to customize settings:`sudo vim /etc/ssh/sshd_config`
 
