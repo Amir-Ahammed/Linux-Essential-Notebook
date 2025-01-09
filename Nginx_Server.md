@@ -90,7 +90,7 @@ Install a free SSL certificate using Let's Encrypt:
    * Verify the SSL setup:
      ```bash
      sudo certbot renew --dry-run
-
+---
 ## Advanced Configuration
 
 * **Load Balancing:** Configure Nginx to distribute traffic among backend servers:
@@ -114,5 +114,5 @@ Install a free SSL certificate using Let's Encrypt:
       access_log off;
   }
 
-
+---
 
