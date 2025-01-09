@@ -31,10 +31,9 @@ A file system is a method and data structure that an operating system uses to ma
 - **Key Features**: Copy-on-write, snapshots, compression, RAID support.
 - **Use Case**: Ideal for servers and systems requiring advanced data management.
 
-### 4. **ZFS (Zettabyte File System)**
-- **Description**: Scalable system with data integrity features.
-- **Key Features**: Snapshots, RAID-Z, data deduplication, self-healing.
-- **Use Case**: Data centers, high-reliability servers.
+### 4. **Optional Advanced File Systems**
+- **ZFS**: Suitable for high-reliability data centers and servers with features like snapshots, deduplication, and RAID-Z.
+- **F2FS**: Optimized for flash-based storage like SSDs and embedded systems.
 
 ---
 
@@ -50,6 +49,29 @@ A file system is a method and data structure that an operating system uses to ma
 | Data Storage         | Btrfs or ZFS               | Advanced features like snapshots and compression ensure data integrity.     |
 
 ---
+
+## Practical Commands for File Systems
+
+### Viewing Mounted File Systems
+```bash
+df -h
+```
+### Formatting a Partition
+```bash
+mkfs.ext4 /dev/sdX
+```
+### Mounting a File System
+```bash
+mount /dev/sdX /mnt
+```
+### Checking and Repairing a File System
+```bash
+fsck /dev/sdX
+```
+### Resizing a File System
+```bash
+resize2fs /dev/sdX
+```
 
 ## Linux Filesystem Hierarchy
 
