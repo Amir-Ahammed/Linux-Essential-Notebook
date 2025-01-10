@@ -1,4 +1,4 @@
-# Table of Contents
+# Table of Contents | Basic Linux Commands in Ubuntu 24.04
 1. [File and Directory Management](#file-and-directory-management)
     * [List files and directories](#list-files-and-directories)
     * [Create directories](#create-directories)
@@ -6,7 +6,8 @@
 3. [Installation](#installation)
 4. [Usage](#usage)
 5. [Conclusion](#conclusion)
-# Basic to Intermediate Linux Commands in Ubuntu 24.04
+
+---
 
 ### 1. File and Directory Management <a name="file-and-directory-management"></a>
 - **List files and directories**  <a name="list-files-and-directories"></a>
