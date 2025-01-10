@@ -1,5 +1,6 @@
 # Table of Contents
 1. [File and Directory Management](#file-and-directory-management)
+    * [List files and directories](#list-files-and-directories)
 2. [Features](#features)
 3. [Installation](#installation)
 4. [Usage](#usage)
@@ -7,7 +8,7 @@
 # Basic to Intermediate Linux Commands in Ubuntu 24.04
 
 ### 1. File and Directory Management <a name="file-and-directory-management"></a>
-- **List files and directories**  
+- **List files and directories**  <a name="list-files-and-directories"></a>
   ```bash
   ls           # Basic list
   ls -l        # Detailed view
