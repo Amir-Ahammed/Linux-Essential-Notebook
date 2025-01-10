@@ -1,10 +1,11 @@
 # Table of Contents | Basic Linux Commands in Ubuntu 24.04
 1. [File and Directory Management](#file-and-directory-management)
-    * [List files and directories](#list-files-and-directories)
-    * [Create directories](#create-directories)
-    * [Remove files or directories](#rfd)
-    * [Copy and move files](#cmf)
+   * [List files and directories](#list-files-and-directories)
+   * [Create directories](#create-directories)
+   * [Remove files or directories](#rfd)
+   * [Copy and move files](#cmf)
 2. [File Permissions and Ownership](#fpo)
+   * [Check file permissions](#cfp)
 3. [Installation](#installation)
 4. [Usage](#usage)
 5. [Conclusion](#conclusion)
@@ -43,7 +44,7 @@
 ---
 
 ### 2. File Permissions and Ownership <a name="fpo"></a>
-- **Check file permissions**  
+- **Check file permissions**  <a name="cfp"></a>
   ```bash
   ls -l filename
   ```
