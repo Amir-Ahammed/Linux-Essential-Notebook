@@ -1,19 +1,14 @@
 # Table of Contents | Basic Linux Commands in Ubuntu 24.04
 1. [File and Directory Management](#file-and-directory-management)
-   * [List files and directories](#list-files-and-directories)
-   * [Create directories](#create-directories)
-   * [Remove files or directories](#rfd)
-   * [Copy and move files](#cmf)
 2. [File Permissions and Ownership](#fpo)
-   * [Check file permissions](#cfp)
-3. [Installation](#installation)
+3. [File Manipulation](#fm)
 4. [Usage](#usage)
 5. [Conclusion](#conclusion)
 
 ---
 
 ### 1. File and Directory Management <a name="file-and-directory-management"></a>
-- **List files and directories**  <a name="list-files-and-directories"></a>
+- **List files and directories**
   ```bash
   ls           # Basic list
   ls -l        # Detailed view
@@ -21,20 +16,20 @@
   ls -a        # Show hidden files
   ```
 
-- **Create directories** <a name="create-directories"></a>
+- **Create directories**
   ```bash
   mkdir new_directory
   mkdir -p parent/child_directory # Create nested directories
   ```
 
-- **Remove files or directories** <a name="rfd"></a> 
+- **Remove files or directories**
   ```bash
   rm file.txt                 # Delete a file
   rm -r directory/            # Delete a directory recursively
   rm -i file.txt              # Prompt before deleting
   ```
 
-- **Copy and move files** <a name="cmf"></a>  
+- **Copy and move files**
   ```bash
   cp source_file target_file  # Copy a file
   cp -r source_dir target_dir # Copy a directory recursively
@@ -44,7 +39,7 @@
 ---
 
 ### 2. File Permissions and Ownership <a name="fpo"></a>
-- **Check file permissions**  <a name="cfp"></a>
+- **Check file permissions**
   ```bash
   ls -l filename
   ```
@@ -63,7 +58,7 @@
 
 ---
 
-### 3. File Manipulation
+### 3. File Manipulation  <a name="fm"></a>
 - **View file contents**  
   ```bash
   cat file.txt                # Display contents
