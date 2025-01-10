@@ -6,7 +6,7 @@
 5. [Process Management](#pm)
 6. [Disk and Filesystem Management](#dfm)
 7. [Networking](#n)
-8. [Package Management](#pm)
+8. [Package Management](#pam)
 9. [](#)
 10. [](#)
 11. [](#)
@@ -160,7 +160,7 @@
 
 ---
 
-### 8. Package Management  <a name="pm"></a>
+### 8. Package Management  <a name="pam"></a>
 - **Update and upgrade system**  
   ```bash
   sudo apt update                # Update package list
