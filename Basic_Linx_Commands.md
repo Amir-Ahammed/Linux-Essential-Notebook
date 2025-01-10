@@ -7,7 +7,7 @@
 6. [Disk and Filesystem Management](#dfm)
 7. [Networking](#n)
 8. [Package Management](#pam)
-9. [](#)
+9. [Archiving and Compression](#ac)
 10. [](#)
 11. [](#)
 12. [](#)
