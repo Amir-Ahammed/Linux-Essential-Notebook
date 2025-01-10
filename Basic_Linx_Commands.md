@@ -2,8 +2,9 @@
 1. [File and Directory Management](#file-and-directory-management)
 2. [File Permissions and Ownership](#fpo)
 3. [File Manipulation](#fm)
-4. [Usage](#usage)
+4. [Search and Find](#sf)
 5. [Conclusion](#conclusion)
+6. 
 
 ---
 
@@ -75,7 +76,7 @@
 
 ---
 
-### 4. Search and Find
+### 4. Search and Find <a name="sf"></a>
 - **Search for text in files**  
   ```bash
   grep "search_text" file.txt       # Search specific text
@@ -90,7 +91,7 @@
 
 ---
 
-### 5. Process Management
+### 5. Process Management  <a name="pm"></a>
 - **Check running processes**  
   ```bash
   ps aux                         # Show all processes
@@ -113,7 +114,7 @@
 
 ---
 
-### 6. Disk and Filesystem Management
+### 6. Disk and Filesystem Management <a name="dfm"></a>
 - **Disk usage and free space**  
   ```bash
   df -h                          # Disk usage
@@ -133,7 +134,7 @@
 
 ---
 
-### 7. Networking
+### 7. Networking <a name="n"></a>
 - **Check network information**  
   ```bash
   ip a                           # Show IP addresses
@@ -152,7 +153,7 @@
 
 ---
 
-### 8. Package Management
+### 8. Package Management  <a name="pm"></a>
 - **Update and upgrade system**  
   ```bash
   sudo apt update                # Update package list
@@ -172,7 +173,7 @@
 
 ---
 
-### 9. Archiving and Compression
+### 9. Archiving and Compression  <a name="ac"></a>
 - **Create and extract tar archives**  
   ```bash
   tar -cvf archive.tar file1 file2
@@ -183,7 +184,7 @@
 
 ---
 
-### 10. System Monitoring
+### 10. System Monitoring  <a name="sm"></a>
 - **Check system information**  
   ```bash
   uname -a                       # System info
@@ -198,7 +199,7 @@
 
 ---
 
-### 11. User Management
+### 11. User Management  <a name="um"></a>
 - **Add a new user**  
   ```bash
   sudo adduser username
@@ -216,7 +217,7 @@
 
 ---
 
-### 12. Scheduling Tasks
+### 12. Scheduling Tasks  <a name="st"></a>
 - **View cron jobs**  
   ```bash
   crontab -l
@@ -234,7 +235,7 @@
 
 ---
 
-### 13. Copy Files from Local Machine to Remote Machine
+### 13. Copy Files from Local Machine to Remote Machine <a name="fm">ctrpc</a>
 
 To copy files from your **local** Ubuntu machine to a **remote** machine, use the **SCP (Secure Copy Protocol)** tool:
 
