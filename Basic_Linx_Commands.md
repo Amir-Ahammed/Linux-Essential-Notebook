@@ -4,7 +4,7 @@
     * [Create directories](#create-directories)
     * [Remove files or directories](#rfd)
     * [Copy and move files](#cmf)
-2. [Features](#features)
+2. [File Permissions and Ownership](#fpo)
 3. [Installation](#installation)
 4. [Usage](#usage)
 5. [Conclusion](#conclusion)
@@ -42,7 +42,7 @@
 
 ---
 
-### 2. File Permissions and Ownership
+### 2. File Permissions and Ownership <a name="fpo"></a>
 - **Check file permissions**  
   ```bash
   ls -l filename
