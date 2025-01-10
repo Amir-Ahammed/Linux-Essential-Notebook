@@ -11,7 +11,7 @@
 10. [System Monitoring](#sm)
 11. [User Management](#um)
 12. [Scheduling Tasks](#st)
-13. [Copy Files from Local Machine to Remote Machine ctrpc](#ctrpc)
+13. [Copy Files from Local Machine to Remote Machine](#ctrpc)
 
 ---
 
