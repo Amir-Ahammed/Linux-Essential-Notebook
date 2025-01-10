@@ -20,7 +20,6 @@ Nginx is a high-performance web server and reverse proxy server known for its sc
 1. **Update Package List** - Run the following command to ensure your package list is up to date:
    ```bash
    sudo apt update
-   sudo apt upgrade -y
 2. **Install Nginx** - Use the following command to install Nginx:
    ```bash
    sudo apt install nginx -y
