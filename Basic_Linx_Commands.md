@@ -242,7 +242,7 @@
 
 ---
 
-### 13. Copy Files from Local Machine to Remote Machine <a name="fm">ctrpc</a>
+### 13. Copy Files from Local Machine to Remote Machine <a name="ctrpc"></a>
 
 To copy files from your **local** Ubuntu machine to a **remote** machine, use the **SCP (Secure Copy Protocol)** tool:
 
