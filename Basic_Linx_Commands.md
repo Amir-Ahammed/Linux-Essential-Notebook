@@ -3,6 +3,7 @@
     * [List files and directories](#list-files-and-directories)
     * [Create directories](#create-directories)
     * [Remove files or directories](#rfd)
+    * [Copy and move files](#cmf)
 2. [Features](#features)
 3. [Installation](#installation)
 4. [Usage](#usage)
@@ -32,7 +33,7 @@
   rm -i file.txt              # Prompt before deleting
   ```
 
-- **Copy and move files**  
+- **Copy and move files** <a name="cmf"></a>  
   ```bash
   cp source_file target_file  # Copy a file
   cp -r source_dir target_dir # Copy a directory recursively
