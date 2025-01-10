@@ -6,7 +6,7 @@
 5. [Process Management](#pm)
 6. [Disk and Filesystem Management](#dfm)
 7. [Networking](#n)
-8. [](#)
+8. [Package Management](#pm)
 9. [](#)
 10. [](#)
 11. [](#)
