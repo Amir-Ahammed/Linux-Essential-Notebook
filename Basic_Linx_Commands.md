@@ -3,8 +3,15 @@
 2. [File Permissions and Ownership](#fpo)
 3. [File Manipulation](#fm)
 4. [Search and Find](#sf)
-5. [Conclusion](#conclusion)
-6. 
+5. [Process Management](#pm)
+6. [Disk and Filesystem Management](#dfm)
+7. [](#)
+8. [](#)
+9. [](#)
+10. [](#)
+11. [](#)
+12. [](#)
+13. [](#)
 
 ---
 
