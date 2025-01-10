@@ -2,6 +2,7 @@
 1. [File and Directory Management](#file-and-directory-management)
     * [List files and directories](#list-files-and-directories)
     * [Create directories](#create-directories)
+    * [Remove files or directories](#rfd)
 2. [Features](#features)
 3. [Installation](#installation)
 4. [Usage](#usage)
@@ -24,7 +25,7 @@
   mkdir -p parent/child_directory # Create nested directories
   ```
 
-- **Remove files or directories**  
+- **Remove files or directories** <a name="rfd"></a> 
   ```bash
   rm file.txt                 # Delete a file
   rm -r directory/            # Delete a directory recursively
