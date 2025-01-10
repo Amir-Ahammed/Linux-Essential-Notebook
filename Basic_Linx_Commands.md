@@ -1,10 +1,6 @@
 # Table of Contents | Basic Linux Commands in Ubuntu 24.04
-1. [File and Directory Management](#file-and-directory-management)
-2. [File Permissions and Ownership](#fpo)
-3. [File Manipulation](#fm)
-4. [Search and Find](#sf)
-5. [Process Management](#pm)
-6. [Disk and Filesystem Management](#dfm)
+1. [File and Directory Management](#file-and-directory-management) &nbsp;&nbsp;&nbsp; 2. [File Permissions and Ownership](#fpo) &nbsp;&nbsp;&nbsp; 3. [File Manipulation](#fm)
+4. [Search and Find](#sf) &nbsp;&nbsp;&nbsp; 5. [Process Management](#pm) &nbsp;&nbsp;&nbsp; 6. [Disk and Filesystem Management](#dfm)
 7. [Networking](#n)
 8. [Package Management](#pam)
 9. [Archiving and Compression](#ac)
