@@ -143,7 +143,7 @@ MaxAuthTries 3              # Limit the number of failed authentication attempts
 ***Step 1***: Generate an SSH key pair: `ssh-keygen -t rsa -b 4096 -C "your_email@example.com"`
 *    Press `Enter` to accept the default file location `~/.ssh/id_rsa`.
 *    Optionally, set a passphrase for the private key.
-*    To check the genarated key: `ll ~/.ssh`
+*    To check the genarated key: `ll ~/.ssh` | On Server: `cat ~/.ssh/authorized_keys` (if any)
 
 ***Step 2***: Copy the public key to the server: `ssh-copy-id username@server_ip` (Enter the password for the user when prompted)
    - Alternatively, manually copy the public key: `cat ~/.ssh/id_rsa.pub | ssh username@server_ip "mkdir -p ~/.ssh && cat >> ~/.ssh/authorized_keys && chmod 600 ~/.ssh/authorized_keys"`
