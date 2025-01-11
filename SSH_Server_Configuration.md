@@ -79,9 +79,9 @@ SSH supports several authentication methods, but the two most common are:
 
 ***Step 2:*** Install the OpenSSH server package: `sudo apt-get install openssh-server`
 
-***Step 3:*** Verify that the SSH service is running: `sudo systemctl status ssh`
-*    If it’s not active, start it: `sudo systemctl start ssh`
-*    Enable it to start on boot: `sudo systemctl enable ssh`
+***Step 3:*** Verify that the SSH service is running: `sudo systemctl status ssh.service`
+*    If it’s not active, start it: `sudo systemctl start ssh.service`
+*    Enable it to start on boot: `sudo systemctl enable ssh.service`
 
 ## Configure SSH for Password-Based Authentication <a name="configure-ssh-for-password-based-authentication"><a/>
 
@@ -103,7 +103,7 @@ MaxAuthTries 3              # Limit the number of failed authentication attempts
 ```
 ***Step 5: Test the configuration***: for any further errors before reloading the service: `sudo /usr/sbin/sshd -t`
 
-***Step 4: Restart Service***: Restart the SSH service to apply changes: `sudo systemctl restart ssh`
+***Step 4: Restart Service***: Restart the SSH service to apply changes: `sudo systemctl restart ssh.service`
 
 ***Step 5: login Test:*** On the client machine, connect using: `ssh -p 2222 username@server_ip`
 
@@ -134,7 +134,7 @@ MaxAuthTries 3              # Limit the number of failed authentication attempts
 ```
 ***Step 4: Test the configuration***: for any further errors before reloading the service: `sudo /usr/sbin/sshd -t`
 
-***Step 5: Restart Service***: Restart the SSH service to apply changes: `sudo systemctl restart ssh`
+***Step 5: Restart Service***: Restart the SSH service to apply changes: `sudo systemctl restart ssh.service`
 
 **On the Client**
 
@@ -161,13 +161,13 @@ sudo ufw status
 ## Manage SSH services <a name="manage-ssh"></a> 
 
 Systemd (used by most modern Linux distributions such as Ubuntu, Debian, Fedora, and CentOS 7+) provides the following fundamental commands for controlling the SSH server.
-  - Start: `sudo systemctl start ssh`
-  - Stop: `sudo systemctl stop ssh`
-  - Restart: `sudo systemctl restart ssh`
-  - Reload: `sudo systemctl reload ssh`
-  - Status: `sudo systemctl status ssh` (This shows whether the service is running, any recent logs, etc.)
-  - Enable on boot: `sudo systemctl enable ssh` (This ensures SSH starts automatically when the system boots)
-  - Disable on boot: `sudo systemctl disable ssh` (This prevents SSH from starting automatically)
+  - Start: `sudo systemctl start ssh.service`
+  - Stop: `sudo systemctl stop ssh.service`
+  - Restart: `sudo systemctl restart ssh.service`
+  - Reload: `sudo systemctl reload ssh.service`
+  - Status: `sudo systemctl status ssh.service` (This shows whether the service is running, any recent logs, etc.)
+  - Enable on boot: `sudo systemctl enable ssh.service` (This ensures SSH starts automatically when the system boots)
+  - Disable on boot: `sudo systemctl disable ssh.service` (This prevents SSH from starting automatically)
 
 ## SSH #known_hosts <a name="ssh-known-hosts"></a>
 
