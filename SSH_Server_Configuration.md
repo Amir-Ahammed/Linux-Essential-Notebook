@@ -30,22 +30,24 @@ SSH relies on the public-key cryptography to authenticate the remote system and 
 
 ![SSH Diagram](Image/SSHdiagram.png)
 
-**Detailed steps**
-1. The client initiates a TCP connection to the SSH server on port 22 (default reserved port).
-2. The server responds to the client’s connection and they establish a TCP handshake.
-3. The server sends its identification string to the client with various informations (protocol version, etc).
-4. The client sends its own identification informations to the server using the same format.
-5. Once the identification strings have been exchanged, the server sends its public key to the client.
-6. If the server is not in the “known_hosts” file of the client, it will prompt the user if they can trust it or not. If yes, the server will be added into the list.
-   - If not, this question will prompted everytime
-7. The client generates a random session key and encrypt it with the server’s public key.
-8. The server decrypts the session key using its private key.
-9. The connection between the client and the server is now secured by encrypting each data using the session key.
+## SSH Connection Process (Detailed Steps)
+
+1.  **TCP Connection:** The client initiates a TCP connection to the SSH server on port 22.
+2.  **TCP Handshake:** The server responds, establishing a TCP handshake.
+3.  **Identification String Exchange:** The server and client exchange identification strings containing protocol version and other information.
+4.  **Server Public Key Exchange:** The server sends its public key to the client.
+5.  **Host Key Verification:**
+    *   The client checks if the server's public key is present in its `known_hosts` file.
+    *   If not found, the client prompts the user to verify the server's fingerprint. If the user accepts, the server's key is added to `known_hosts`.
+    *   If the key doesn't match an existing entry in `known_hosts`, a warning is displayed, indicating a potential man-in-the-middle attack.
+6.  **Session Key Generation and Encryption:** The client generates a random session key and encrypts it using the server's public key.
+7.  **Session Key Decryption:** The server decrypts the session key using its private key.
+8.  **Encrypted Communication:** All subsequent communication is encrypted using the shared session key, establishing a secure channel.
 
 ## SSH Authentication <a name="ssh-authentication"></a>
 SSH (Secure Shell) authentication is a mechanism used to securely verify the identity of users or systems connecting to a remote machine via the SSH protocol. The process ensures that only authorized entities gain access to the server and its resources. 
 
-***Authentication Methods*** <br>
+**Authentication Methods** <br>
 SSH supports several authentication methods, but the two most common are:
 
 *   Password-based authentication:
@@ -57,7 +59,7 @@ SSH supports several authentication methods, but the two most common are:
       - Public Key: Copied to the server and stored in ~/.ssh/authorized_keys.
     - During authentication, the server validates the client by challenging the private key.
  
-***Authentication Process Workflow***
+**Authentication Process Workflow**
 
 * Connection Initialization:
     - The client initiates an SSH session with the server.
@@ -75,21 +77,21 @@ SSH supports several authentication methods, but the two most common are:
 
 ## SSH Server Installation <a name="ssh-server-installation"></a>
 
-***Step 1:*** First, make sure your system is up to date: `sudo apt-get update`
+**Step 1:** First, make sure your system is up to date: `sudo apt-get update`
 
-***Step 2:*** Install the OpenSSH server package: `sudo apt-get install openssh-server`
+**Step 2:** Install the OpenSSH server package: `sudo apt-get install openssh-server`
 
-***Step 3:*** Verify that the SSH service is running: `sudo systemctl status ssh.service`
+**Step 3:** Verify that the SSH service is running: `sudo systemctl status ssh.service`
 *    If it’s not active, start it: `sudo systemctl start ssh.service`
 *    Enable it to start on boot: `sudo systemctl enable ssh.service`
 
 ## Configure SSH for Password-Based Authentication <a name="configure-ssh-for-password-based-authentication"><a/>
 
-***Step 1: Backup the Configuration File***: It's always a good practice to create a backup of the existing configuration file: `sudo cp /etc/ssh/sshd_config /etc/ssh/sshd_config.bak`
+**Step 1: Backup the Configuration File**: It's always a good practice to create a backup of the existing configuration file: `sudo cp /etc/ssh/sshd_config /etc/ssh/sshd_config.bak`
 
-***Step 2: Edit the SSH Configuration File***: Open the SSH configuration file to customize settings:`sudo vim /etc/ssh/sshd_config`
+**Step 2: Edit the SSH Configuration File**: Open the SSH configuration file to customize settings:`sudo vim /etc/ssh/sshd_config`
 
-***Step 3*** Ensure the following settings are configured:
+**Step 3** Ensure the following settings are configured:
 ```
 Port 2222                   # Use a non-standard port to reduce exposure to automated scans.
 PasswordAuthentication yes
@@ -101,11 +103,11 @@ AllowUsers username         # Optional: Restrict SSH access to specific users or
 AllowGroups sshusers        # Optional: Restrict SSH access to specific users or groups to limit exposure
 MaxAuthTries 3              # Limit the number of failed authentication attempts to prevent brute force attacks
 ```
-***Step 5: Test the configuration***: for any further errors before reloading the service: `sudo /usr/sbin/sshd -t`
+**Step 5: Test the configuration**: for any further errors before reloading the service: `sudo /usr/sbin/sshd -t`
 
-***Step 4: Restart Service***: Restart the SSH service to apply changes: `sudo systemctl restart ssh.service`
+**Step 4: Restart Service**: Restart the SSH service to apply changes: `sudo systemctl restart ssh.service`
 
-***Step 5: login Test:*** On the client machine, connect using: `ssh -p 2222 username@server_ip`
+**Step 5: login Test:** On the client machine, connect using: `ssh -p 2222 username@server_ip`
 
 
 ## Configure SSH for Key-Based Authentication <a name="configure-ssh-for-key-based-authentication"><a/>
@@ -141,6 +143,7 @@ MaxAuthTries 3              # Limit the number of failed authentication attempts
 ***Step 1***: Generate an SSH key pair: `ssh-keygen -t rsa -b 4096 -C "your_email@example.com"`
 *    Press `Enter` to accept the default file location `~/.ssh/id_rsa`.
 *    Optionally, set a passphrase for the private key.
+*    To check the genarated key: `ll ~/.ssh`
 
 ***Step 2***: Copy the public key to the server: `ssh-copy-id username@server_ip` (Enter the password for the user when prompted)
    - Alternatively, manually copy the public key: `cat ~/.ssh/id_rsa.pub | ssh username@server_ip "mkdir -p ~/.ssh && cat >> ~/.ssh/authorized_keys && chmod 600 ~/.ssh/authorized_keys"`
