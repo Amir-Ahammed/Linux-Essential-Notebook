@@ -1,27 +1,27 @@
-## <span style="font-size: 20px;"><strong><em>IP Address Configuration using Netplan on Ubuntu
+# <span style="font-size: 20px;"><strong><em>IP Address Configuration using Netplan on Ubuntu
 </em></strong></span>
 Configuring an IP address on an Ubuntu server can be done using Netplan, which is the default network management tool for Ubuntu 17.10 and later versions. Here’s a step-by-step guide to manually assign a static IP address:
 
-***Step 1: Identify Your Network Interface*** - 
+**Step 1: Identify Your Network Interface** - 
 First, you need to identify the name of your network interface. Open a terminal and run:
 ```
 ip link
 ```
 Look for your network interface (e.g., ens33).
 
-***Step 2: Backup Your Configuration File*** - 
+**Step 2: Backup Your Configuration File** - 
 Netplan configuration file located in `` /etc/netplan/``. You might find a file named ``01-netcfg.yaml`` or ``50-cloud-init.yaml``. Before making any changes, it's a good practice to backup the original configuration file. You can do this by running:
 ``` 
 sudo cp /etc/netplan/50-cloud-init.yaml /etc/netplan/50-cloud-init.yaml.bak
 ```
 
-***Step 3: Edit the Netplan Configuration File*** - 
+**Step 3: Edit the Netplan Configuration File** - 
 Open the Netplan configuration file by useing a text editor like vim:
 ```
 sudo vim /etc/netplan/50-cloud-init.yaml
 ```
 
-***Step 4: Add Your Configuration*** - 
+**Step 4: Add Your Configuration** - 
 Add or update the configuration for your network interface. Here’s an example configuration:
 ```
 network:
@@ -50,13 +50,13 @@ network:
 ```
 Replace ens33 with your actual network interface name, and adjust the IP address, subnet mask, gateway, and DNS servers as needed.
 
-***Step 4: Apply the Configuration*** - 
+**Step 4: Apply the Configuration** - 
 Save the file and exit the text editor. Then apply the changes with:
 ```
 sudo netplan apply
 ```
 
-***Step 5: Verify the Configuration*** - 
+**Step 5: Verify the Configuration** - 
 Check if the IP address has been assigned correctly:
 ```
 ip a
