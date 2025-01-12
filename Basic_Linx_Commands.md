@@ -267,6 +267,6 @@ This command will copy `file.txt` from your local machine to the `/home/user/` d
 
 #### **Example: Copy a directory to the remote machine**
 ```bash
-scp -r /home/youruser/directory user@192.168.1.100:/home/user/
+scp -P 8181 /home/amir/Downloads/donate.tar amir@192.168.1.81:/home/amir/
 ```
 This will copy the `directory` and its contents from your local machine to the remote machine.
