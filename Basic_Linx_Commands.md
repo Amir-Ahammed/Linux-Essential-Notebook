@@ -211,6 +211,10 @@
   ```bash
   sudo adduser username
   ```
+- **Add the user to the sudo group**
+  ```bash
+  sudo usermod -aG sudo <username>
+  ``` 
 
 - **Switch user**  
   ```bash
