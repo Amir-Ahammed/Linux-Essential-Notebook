@@ -49,7 +49,7 @@ Nginx is a high-performance web server and reverse proxy server known for its sc
    * Create a new server block configuration file:
      ```bash
      sudo vim /etc/nginx/sites-available/example.com
-   * Add the following configuration:
+   * Add the following configuration(HTTP Server Block):
      ```nginx
      server {
          listen 80;
