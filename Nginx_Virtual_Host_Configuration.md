@@ -1,12 +1,9 @@
-```
+
+```nginx
 server {
     listen 80;
-    server_name example.com www.example.com;
-
-    # Document Root and Indexing
-    root /var/www/example.com/html;
-    # Add index.php to the list if you are using PHP
-    index index.html index.htm index.php;
+    listen [::]:80; # Listen on IPv6 as well
+    server_name example.com [www.example.com](https://www.example.com);
 
     # Redirect all HTTP requests to HTTPS
     return 301 https://$host$request_uri;
