@@ -183,10 +183,16 @@
 ### 9. Archiving and Compression  <a name="ac"></a>
 - **Create and extract tar archives**  
   ```bash
+  #Tar
   tar -cvf archive.tar file1 file2
-  tar -xvf archive.tar           # Extract archive
-  tar -czvf archive.tar.gz file  # Compress with gzip
-  tar -xzvf archive.tar.gz       # Extract gzip archive
+  tar -xvf archive.tar               # Extract archive
+  tar -czvf archive.tar.gz file      # Compress with gzip
+  tar -xzvf archive.tar.gz           # Extract gzip archive
+  #Zip
+  zip archive_name.zip file1 file2                  # Zip a Single File
+  zip -r archive_name.zip directory_name            # Zip a Directory
+  unzip archive_name.zip                            # Unzip a ZIP File
+  unzip archive_name.zip -d /path/to/destination    # Unzip to a Specific Directory
   ```
 
 ---
