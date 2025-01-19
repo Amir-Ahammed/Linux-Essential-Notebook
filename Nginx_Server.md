@@ -73,12 +73,12 @@ Nginx is a high-performance web server and reverse proxy server known for its sc
     * Test the Nginx configuration:
       ```bash
       sudo nginx -t
-    * Reload Nginx:
-      ```bash
-      sudo systemctl reload nginx
-    * Soft Reload (Server will not disconnect) its best practice to use soft reload
+    * Soft Reload: (Server will not disconnect) its best practice to use soft reload
       ```bash
       sudo nginx -s reload
+    * Hard Restart: (if soft reload not work)
+      ```bash
+      sudo systemctl restart nginx.service
 
 3. **Enable HTTPS with SSL/TLS** - 
 Install a free SSL certificate using Let's Encrypt:
