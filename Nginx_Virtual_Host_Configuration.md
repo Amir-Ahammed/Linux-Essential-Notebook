@@ -1,5 +1,7 @@
 
 ```nginx
+# HTTP Server Block (Redirect to HTTPS):
+
 server {
     listen 80;
     listen [::]:80; # Listen on IPv6 as well
@@ -8,6 +10,8 @@ server {
     # Redirect all HTTP requests to HTTPS
     return 301 https://$host$request_uri;
 }
+
+# HTTPS Server Block:
 
 server {
     listen 443 ssl default_server;
