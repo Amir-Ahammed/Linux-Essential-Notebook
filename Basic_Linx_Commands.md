@@ -269,4 +269,11 @@ This command will copy `file.txt` from your local machine to the `/home/user/` d
 ```bash
 scp -P 8181 /home/amir/Downloads/donate.tar amir@192.168.1.81:/home/amir/
 ```
-This will copy the `directory` and its contents from your local machine to the remote machine.
+#### **Example: Copy a directory/File from Windows to the WSL machine**
+```bash
+cp /mnt/d/Projects/student-sync.zip /home/amir/
+```
+#### **Example: Copy a directory/File from Windows to the remote machine**
+```bash
+scp D:\Projects\student-sync.zip amir@192.168.1.70:/home/amir/
+```
