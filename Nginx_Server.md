@@ -76,6 +76,9 @@ Nginx is a high-performance web server and reverse proxy server known for its sc
     * Reload Nginx:
       ```bash
       sudo systemctl reload nginx
+    * Soft Reload (Server will not disconnect) its best practice to use soft reload
+      ```bash
+      sudo nginx -s reload
 
 3. **Enable HTTPS with SSL/TLS** - 
 Install a free SSL certificate using Let's Encrypt:
