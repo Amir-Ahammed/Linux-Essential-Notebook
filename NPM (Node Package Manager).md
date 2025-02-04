@@ -17,18 +17,18 @@ NPM (Node Package Manager) is the default package manager for **Node.js** and **
    - Example:
      ```json
      {
-       "name": "my-project",                  // The name of your project.
-       "version": "1.0.0",                    // The current version of your project.
-       "scripts": {                           // Custom commands you can run using `npm run <script-name>`.
+       "name": "my-project",           // The name of your project.
+       "version": "1.0.0",             // The current version of your project.
+       "scripts": {                    // Custom commands you can run using `npm run <script-name>`.
          "start": "node app.js",
          "build": "node app.js",
          "test": "jest"
        },
-       "dependencies": {                      // Libraries your project needs to run in production.
+       "dependencies": {               // Libraries your project needs to run in production.
          "express": "^4.17.1",
          "react": "^18.2.0",
        },
-       "devDependencies": {                   // Tools your project needs only during development.
+       "devDependencies": {            // Tools your project needs only during development.
          "jest": "^27.0.0"
        }
      }
