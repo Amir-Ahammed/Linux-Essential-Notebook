@@ -20,10 +20,6 @@ MySQL is an open-source database management system, commonly installed as part o
   ```
   sudo systemctl enable mysql
   ```
-* Secure MySQL installation:
-  ```
-  sudo mysql_secure_installation
-  ```
   
 ### Step 2 — Configuring MySQL
 
@@ -35,9 +31,15 @@ MySQL is an open-source database management system, commonly installed as part o
   ```
   ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'password';
   ```
+  Return to Default authentication: `ALTER USER 'root'@'localhost' IDENTIFIED WITH auth_socket;`
+
 * After making this change, exit the MySQL prompt:
   ```
   exit
+  ```
+* Secure MySQL installation:
+  ```
+  sudo mysql_secure_installation
   ```
 * Connect to the MySQL server as the root user:
   ```
