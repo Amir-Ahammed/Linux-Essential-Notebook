@@ -62,7 +62,7 @@ MySQL is an open-source database management system, commonly installed as part o
   ```
 * Grant user appropriate privileges
   ```
-  GRANT ALL PRIVILEGE ON databasename. * TO 'username'@'host';
+  GRANT ALL PRIVILEGE ON databasename.* TO 'username'@'localhost';
   ```
 * Flush Privileges to use
   ```
