@@ -5,7 +5,7 @@
   ```
 * Download Java 18 using `wget`
   ```
-  wget https://download.oracle.com/java/18/latest/jdk-18_linux-x64_bin.deb -O jdk-18.deb
+  wget https://download.oracle.com/java/18/archive/jdk-18.0.2.1_linux-x64_bin.deb
   ```
 * Install Java 18 | The second command ensures dependencies are installed correctly.
   ```
