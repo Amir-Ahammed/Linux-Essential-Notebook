@@ -45,3 +45,31 @@ MySQL is an open-source database management system, commonly installed as part o
   ```
   mysql -u root -p
   ```
+
+### Step 3 — Creating a Dedicated MySQL User and Granting Privileges
+
+* Check available databases
+  ```
+  show databases;
+  ```
+* Create Database
+  ```
+  CREATE DATABASE name;
+  ```
+* Create a new user
+  ```
+  CREATE USER 'sammy'@'localhost' IDENTIFIED WITH mysql_native_password BY 'password';
+  ```
+* Grant user appropriate privileges
+  ```
+  GRANT ALL PRIVILEGE ON databasename. * TO 'username'@'host';
+  ```
+* Flush Privileges to use
+  ```
+  FLUSH PRIVILEGES;
+  ```
+* Exit the MySQL client
+  ```
+  exit
+  ```
+  
