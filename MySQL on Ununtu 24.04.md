@@ -20,7 +20,12 @@ MySQL is an open-source database management system, commonly installed as part o
   ```
   sudo mysql_secure_installation
   ```
-
+* Start and enable MySQL service:
+  ```
+  sudo systemctl start mysql
+  sudo systemctl enable mysql
+  ```
+  
 ### Step 2 — Configuring MySQL
 
 * Open up the MySQL prompt:
